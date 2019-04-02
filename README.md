@@ -6,9 +6,9 @@ This repository entails the draft genome metabolic model (GEM) SalbGEM for *Stre
 
   * Organism Information
 
-*S. albidoflavus* is recognized as a effective host for heterologous production of natural products and secondary metabolites. Its fast growth and an efficient genetic system based on a naturally minimized genome have been attributed for the strain's advantage in expression of biosynthetic pathways for a variety of natural products including antibiotics and flavonoids ([Zaburannyi et al., 2014](https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-15-97), [Marin et al., 2017](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0207278))
+*S. albidoflavus* is recognized as a effective host for heterologous production of natural products and secondary metabolites. Its fast growth and an efficient genetic system based on a naturally minimized genome have been attributed for the strain's advantage in expression of biosynthetic pathways for a variety of natural products including antibiotics and flavonoids ([Zaburannyi et al., 2014](https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-15-97), [Marin et al., 2017](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0207278)).
 
-This repository is administered by Cheewin Kittikunapong, Division of Systems and Synthetic Biology, Department of Biology and Biological Engineering, Chalmers University of Technology
+This repository is administered by Cheewin Kittikunapong, Division of Systems and Synthetic Biology, Department of Biology and Biological Engineering, Chalmers University of Technology.
 
 ## Installation
 
