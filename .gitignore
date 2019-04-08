@@ -12,3 +12,6 @@
 
 # Scrap folder
 scrap
+
+# .DS_Store file
+.DS_Store
