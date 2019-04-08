@@ -1,0 +1,14 @@
+# Thumbnails
+._*
+
+# Windows default autosave extension
+*.asv
+
+# OSX / *nix default autosave extension
+*.m~
+
+# Excel temporary file
+~$*
+
+# Scrap folder
+scrap
