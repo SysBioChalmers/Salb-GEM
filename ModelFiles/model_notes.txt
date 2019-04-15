@@ -1,0 +1,80 @@
+KEGG-1:
+
+originally “Sal_KEGGdraft.mat”
+
+KEGG draft model obtained from getKEGGModelForOrganism w/ ’S.albus_J1074_AA.fasta’
+	+ 5745 total ORFs
+	+ 5705 multi-species ORFs (Streptomyces genus)
+	+ 40 species-specific ORFs
+	+ 1120 hypothetical proteins
+	+ 8 putative proteins
+
+NO bad reactions (no unbalanced reactions found in solution, H+ made/consumed)
+
+KEGG-2:
+
+KEGG draft model obtained from getKEGGModelForOrganism w/ 'GCA_000359525.1_ASM35952v1_protein.faa’
+
+	+ 5832 total ORFs
+	+ 0 multi-species ORFs
+	+ 5832 species-specific ORFs
+	+ 1175 hypothetical proteins
+	+ 28 putative proteins
+
+Kept *spontaneous, *undefinedstoich, *incomplete, *general
+cutOff = 10^-50
+minScoreRatioG = 0.8
+minScoreRatioKO = 0.3
+MaxPhylDist = inf (all sequences)
+
+	- 1658 reactions assigned
+	- 1919 metabolites assigned
+	- 1050 genes assigned
+
+(Rendition was noticeably faster than with KEGG-1)
+
+NO bad reactions (no unbalanced reactions found in solution, H+ made/consumed)
+
+* DECIDED TO CONTINUE WITH KEGG-2
+
+KEGG-3:
+
+KEGG draft model obtained from getKEGGModelForOrganism w/ 'GCA_000359525.1_ASM35952v1_protein.faa’
+
+Removed *spontaneous, *undefinedstoich, *incomplete, *general
+cutOff = 10^-30
+minScoreRatioG = 0.8
+minScoreRatioKO = 0.3
+MaxPhylDist = -1 (same domain)
+
+	- 2341 reactions assigned
+	- 2470 metabolites assigned
+	- 1083 genes assigned
+
+NO bad reactions (no unbalanced reactions found in solution, H+ made/consumed)
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+META-1
+
+MetaCyc draft model obtained from getMetaCycModelForOrganism w/ 'GCA_000359525.1_ASM35952v1_protein.faa’
+
+* default settings
+
+	- 1248 reactions assigned
+	- 1799 metabolites assigned
+	- 1572 genes assigned
+
+NO bad reactions (no text prompt)
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+ScoHomology
+
+Initial draft model obtained from getModelFromHomology w/ 'GCA_000359525.1_ASM35952v1_protein.faa' and 'scoGEM.xml' as template
+Default parameters (cutoff, E values, etc.) were used.
+
+	- 1498 reactions assigned
+	- 1575 metabolites assigned
+	- 1115 genes assigned
+
