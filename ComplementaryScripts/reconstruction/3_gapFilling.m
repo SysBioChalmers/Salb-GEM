@@ -75,8 +75,8 @@ template = modelSco;
 %% Get Essential Model for draftSalb
 
 % essentialModel = getEssentialModel(model, template, biomassRxn)
-
-essentialModel = getEssentialModel(draftModel_biomass, template,'BIOMASS_SCO');
+addpath('../../ComplementaryScripts');
+essentialModel = getEssentialModel(testModel, template,'BIOMASS_SCO');
 
 newModel = mergeModels({draftModel_new, essentialModel});
 

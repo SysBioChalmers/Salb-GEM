@@ -9,7 +9,8 @@
 %modelSco = importModel('template_models/ScoGEM.xml', false);
 
 % load standardized grRules for modelSco
-load('template_models/temp/modelSco_NADH17b8.mat');
+modelSco = importModel...
+    ('../../ComplementaryData/reconstruction/templateModels/scoGEM_stdGrRules.xml',false);
 
 % modelSclav = importModel('template_models/SclavGEM.xml', false, true);
 % NOTE 2019-04-25
@@ -17,9 +18,10 @@ load('template_models/temp/modelSco_NADH17b8.mat');
 % SBML2 format, missing metabolite IDs in S matrix
 
 % ad hoc solution: read and rewrite in CobraToolbox then import in RAVEN
-model = readCbModel('template_models/SclavGEM.xml');
-writeCbModel(model, 'fileName','SclavGEMCb.xml','format','sbml');
-modelSclavCb = importModel('SclavGEMCb.xml', false);
+%model = readCbModel('../../ComplementaryData/reconstruction/templateModels/SclavGEM.xml');
+%writeCbModel(model, 'fileName','SclavGEMCb.xml','format','sbml');
+
+modelSclavCb = importModel('../../ComplementaryData/reconstruction/templateModels/SclavGEMCb.xml', false);
 
 % verify field elements not missing
 % exportToExcelFormat(modelSclavCb, 'SclavCB');
@@ -35,7 +37,7 @@ modelSclav.id = 'SclavGEM';
 organismID = 'salb';
 
 % load FASTA file with headers sorted by gene loci (XNR_xxxx)
-fastaFile = 'seq/GenBank/J1074_protein_fasta_sortLoci.fasta';
+fastaFile = '../../ComplementaryData/genome/J1074_protein_fasta_sortLoci.txt';
 
 %% Build Salb draft model from Sco and Sclav homology
 
@@ -51,8 +53,8 @@ refModels = {modelSco, modelSclav};
 refModelIDs = {modelSco.id, modelSclav.id};
 
 % cell array for reference FASTA files may be appended with more templates
-refFastaFiles = {'template_models/Sco_all_protein.faa',...
-    'template_models/Sclav_all_protein.faa'};
+refFastaFiles = {'../../ComplementaryData/genome/Sco_all_protein.faa',...
+    '../../ComplementaryData/genome/Sclav_all_protein.faa'};
 
 % blastStructure has been exported manually into an Excel file for closer
 % inspection
@@ -62,8 +64,7 @@ blastStructure = getBlast(organismID, fastaFile, refModelIDs, refFastaFiles);
 % (E value, alignment length and identity)
 
 draftSalb = getModelFromHomology(refModels, blastStructure, organismID);
-save('draft_models/StrepHomology.mat','draftSalb');
-exportToExcelFormat(draftSalb, 'StrepHomology');
 
 % NOTE: 2019-04-30
 % different metabolite IDs (metaid, id, name)
+% different reactions IDs

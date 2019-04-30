@@ -22,7 +22,7 @@
 
 % scoGEM grRules standardized
 modelSco = importModel...
-    ('ComplementaryData/reconstruction/templateModels/scoGEM_stdGrRules.xml',false);
+    ('../../ComplementaryData/reconstruction/templateModels/scoGEM_stdGrRules.xml',false);
 
 % If any, search for  reactions with incorrectly formatted grRules and substitute
 % with manually re-formatted new strings
@@ -36,7 +36,7 @@ modelSco = importModel...
 organismID = 'salb';
 
 % load FASTA file with headers sorted by gene loci (XNR_xxxx)
-fastaFile = 'ComplementaryData/genome/J1074_protein_fasta_sortLoci.txt';
+fastaFile = '../../ComplementaryData/genome/J1074_protein_fasta_sortLoci.txt';
 
 %% Build Salb draft model from Sco homology
 
@@ -49,7 +49,7 @@ refModels = modelSco;
 refModelIDs = modelSco.id;
 
 % cell array for reference FASTA files may be appended with more templates
-refFastaFiles = 'ComplementaryData/genome/Sco_all_protein.faa';
+refFastaFiles = '../../ComplementaryData/genome/Sco_all_protein.faa';
 
 % blastStructure has been exported manually into an Excel file for closer
 % inspection
