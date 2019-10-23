@@ -88,6 +88,17 @@ modelSalb = setParam(modelSalb,'lb','growth',0);
 [solution, hsSolOut] = solveLP(modelSalb, 0);
 
 % see what the exchange fluxes are (glucose uptake, etc.)
+
+% NOTE:
+% If you did not change the parameters of mergeModel in RAVEN fillGaps as
+% specified in the SUGGESTION section at the top, your output from
+% printFluxes will return fluxes for reactions that are not supposed to be
+% exchange reactions. This is because RAVEN incorrectly parsed the
+% reactions during the gap-filling stage and omitted certain metabolites
+% from being incorporated into the model. Specifically for the reactions
+% you see in printFluxes, their equations are missing one complete side
+% leading it to be confused for an exchange reaction.
+
 printFluxes(modelSalb, solution.x, true, 10^-8, '', '%rxnID\t %flux\t lb=%lower \t ub=%upper\n');
 
 %% Check and validate added reactions in gap-filling
