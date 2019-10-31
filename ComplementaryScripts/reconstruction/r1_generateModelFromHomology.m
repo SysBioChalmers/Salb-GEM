@@ -72,8 +72,11 @@ blastStructure = getBlast(organismID, fastaFile, refModelIDs, refFastaFiles);
 % assemblies; however, we will use XNR notated assembly, which is based on
 % Zaburannyi et al., 2014 and is also the notation in KEGG database
 
-% We will generate the model using default parameters in the function
-modelSalb = getModelFromHomology(refModels, blastStructure, organismID);
+% We will generate the model using non-default parameters in the function:
+% E-value threshold of 10^-50, minimum alignment length of 90 and
+% identity of 40
+modelSalb = getModelFromHomology(refModels, blastStructure, organismID, {},...
+    1, 0, 10^-50, 90, 40, true);
 modelSalb.id = 'Salb-GEM';
 
 %% Removing an arbritary metabolite term from Sco-GEM template model

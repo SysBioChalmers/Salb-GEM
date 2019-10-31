@@ -55,6 +55,8 @@ modelSalb = removeReactions(modelSalb, 'PROTEIN_PSEUDO_tRNA');
 % reaction is structured by adding an actual pseudometabolite for biomass
 modelSalb = changeRxns(modelSalb, 'BIOMASS_SCO', '75.79 ATP[c] + 75.79 H2O[c] + carbohydrate pseudometabolite[c] + cell wall pseudometabolite[c] + DNA pseudometabolite[c] + lipid pseudometabolite[c] + misc pseudometabolite[c] + protein pseudometabolite[c] + RNA pseudometabolite[c] => 75.79 ADP[c] + 75.79 H+[c] + 75.79 Phosphate[c] + biomass[c]', 3, '', true);
 modelSalb.mets{end} = 'biomass_c';
+i = getIndexes(modelSalb, 'BIOMASS_SCO', 'rxns');
+modelSalb.rxns{i} = 'BIOMASS_SALB'; clear('i');
 
 % add an exchange reaction for biomass labelled as growth
 % This is done so that in later steps of analysis, we can easily view the
@@ -62,10 +64,20 @@ modelSalb.mets{end} = 'biomass_c';
 modelSalb = addExchangeRxns(modelSalb, 'out','biomass_c'); 
 modelSalb.rxns{end} = 'growth'; modelSalb.rxnNames{end} = 'biomass equation';
 
+% We will also be updating some pseudoreactions for DNA, RNA and amino
+% acids with available information using the S. albus genome
+
+modelSalb = changeRxns(modelSalb, 'DNA_PSEUDO', '0.03239 dATP[c] + 0.02210 dCTP[c] + 0.02210 dGTP[c] + 0.03239 dTTP[c] => 0.11725 H+[c] + 0.11725 Diphosphate[c] + DNA pseudometabolite[c]', 3, '', true);
+modelSalb = changeRxns(modelSalb, 'RNA_PSEUDO', '0.06627 ATP[c] + 0.19219 CTP[c] + 0.16887 GTP[c] + 0.06359 UTP[c] => 0.5186 H+[c] + 0.5186 Diphosphate[c] + RNA pseudometabolite[c]', 3, '', true);
+modelSalb = changeRxns(modelSalb, 'PROTEIN_PSEUDO', '0.55133 L-Alanine[c] + 0.31652 L-Arginine[c] + 0.05936 L-Asparagine[c] + 0.22446 L-Aspartate[c] + 0.02859 L-Cysteine[c] + 0.10212 L-Glutamine[c] + 0.23500 L-Glutamate[c] + 0.37818 Glycine[c] + 0.08875 L-Histidine[c] + 0.10611 L-Isoleucine[c] + 0.41061 L-Leucine[c] + 0.07674 L-Lysine[c] + 0.06192 L-Methionine[c] + 0.10067 L-Phenylalanine[c] + 0.25219 L-Proline[c] + 0.18223 L-Serine[c] + 0.23713 L-Threonine[c] + 0.05726 L-Tryptophan[c] + 0.07561 L-Tyrosine[c] + 0.32285 L-Valine[c] => 4.0756 H2O[c] + protein pseudometabolite[c]', 3, '', true);
+
+% You can verify proper modification using below function
+% constructEquations(modelSalb, '[macromolecule]_PSEUDO')
+
 %% Use RAVEN fillGaps
 
 % use biomass production as objective function for gap-filling
-modelSalb = setParam(modelSalb,'obj','BIOMASS_SCO',0);
+modelSalb = setParam(modelSalb,'obj','BIOMASS_SALB',0);
 modelSalb = setParam(modelSalb,'obj','growth',1);
 
 % set biomass production to arbitrary low flux, to force gap-filling to
@@ -85,7 +97,7 @@ modelSalb.id = 'Salb-GEM'
 
 modelSalb = setParam(modelSalb,'lb','growth',0);
 
-[solution, hsSolOut] = solveLP(modelSalb, 0);
+[solution, hsSolOut] = solveLP(modelSalb, 0); -solution.f
 
 % see what the exchange fluxes are (glucose uptake, etc.)
 
