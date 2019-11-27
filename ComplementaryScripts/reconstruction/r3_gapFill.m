@@ -64,12 +64,41 @@ modelSalb.rxns{i} = 'BIOMASS_SALB'; clear('i');
 modelSalb = addExchangeRxns(modelSalb, 'out','biomass_c'); 
 modelSalb.rxns{end} = 'growth'; modelSalb.rxnNames{end} = 'biomass equation';
 
+%% Updating biomass pseudoreactions to S. albus profile
+
 % We will also be updating some pseudoreactions for DNA, RNA and amino
 % acids with available information using the S. albus genome
 
-modelSalb = changeRxns(modelSalb, 'DNA_PSEUDO', '0.03239 dATP[c] + 0.02210 dCTP[c] + 0.02210 dGTP[c] + 0.03239 dTTP[c] => 0.11725 H+[c] + 0.11725 Diphosphate[c] + DNA pseudometabolite[c]', 3, '', true);
-modelSalb = changeRxns(modelSalb, 'RNA_PSEUDO', '0.06627 ATP[c] + 0.19219 CTP[c] + 0.16887 GTP[c] + 0.06359 UTP[c] => 0.5186 H+[c] + 0.5186 Diphosphate[c] + RNA pseudometabolite[c]', 3, '', true);
-modelSalb = changeRxns(modelSalb, 'PROTEIN_PSEUDO', '0.55133 L-Alanine[c] + 0.31652 L-Arginine[c] + 0.05936 L-Asparagine[c] + 0.22446 L-Aspartate[c] + 0.02859 L-Cysteine[c] + 0.10212 L-Glutamine[c] + 0.23500 L-Glutamate[c] + 0.37818 Glycine[c] + 0.08875 L-Histidine[c] + 0.10611 L-Isoleucine[c] + 0.41061 L-Leucine[c] + 0.07674 L-Lysine[c] + 0.06192 L-Methionine[c] + 0.10067 L-Phenylalanine[c] + 0.25219 L-Proline[c] + 0.18223 L-Serine[c] + 0.23713 L-Threonine[c] + 0.05726 L-Tryptophan[c] + 0.07561 L-Tyrosine[c] + 0.32285 L-Valine[c] => 4.0756 H2O[c] + protein pseudometabolite[c]', 3, '', true);
+% Load biomass information
+fid             = fopen([ '../../ComplementaryData/biomass/biomassCuration.csv']);
+loadedData      = textscan(fid, '%q %q %q %f','delimiter', ',', 'HeaderLines', 1);
+fclose(fid);
+
+biomass.name         = loadedData{1};    
+biomass.mets         = loadedData{2};
+biomass.pseudorxn    = loadedData{3};    
+biomass.coeff        = loadedData{4};
+
+% DNA pseudoreaction
+% Obtain the relevant rows for information
+indexes = find(contains(biomass.pseudorxn, 'DNA'));
+% Update stoichiometries
+equations.mets          = biomass.mets(indexes);
+equations.stoichCoeffs  = biomass.coeff(indexes);
+% Update changes in the model structure
+modelSalb = changeRxns(modelSalb, 'DNA_PSEUDO', equations, 1);
+
+% RNA pseudoreaction
+indexes = find(contains(biomass.pseudorxn, 'RNA'));
+equations.mets          = biomass.mets(indexes);
+equations.stoichCoeffs  = biomass.coeff(indexes);
+modelSalb = changeRxns(modelSalb, 'RNA_PSEUDO', equations, 1);
+
+% Protein pseudoreaction
+indexes = find(contains(biomass.pseudorxn, 'protein'));
+equations.mets          = biomass.mets(indexes);
+equations.stoichCoeffs  = biomass.coeff(indexes);
+modelSalb = changeRxns(modelSalb, 'PROTEIN_PSEUDO', equations, 1);
 
 % You can verify proper modification using below function
 % constructEquations(modelSalb, '[macromolecule]_PSEUDO')
@@ -92,6 +121,9 @@ modelSalb = setParam(modelSalb,'ub','growth',1000);
 
 [ConnectedRxns, cannotConnect, addedRxns, modelSalb, exitFlag] = fillGaps(modelSalb, modelSco, false, true);
 modelSalb.id = 'Salb-GEM'
+rxnIndexes = getIndexes(modelSalb, addedRxns, 'rxns');
+
+modelSalb.rxnNotes(rxnIndexes) = {'Included from gap-filling with RAVEN'};
 
 %% Verify growth by FBA and examine fluxes
 
@@ -135,4 +167,4 @@ names_addedRxns = modelSalb.rxnNames(index);
 
 %% save model
 
-save('scrap/r3_draftSalb_gapFill.mat', 'modelSalb');
+%save('scrap/r3_draftSalb_gapFill.mat', 'modelSalb');

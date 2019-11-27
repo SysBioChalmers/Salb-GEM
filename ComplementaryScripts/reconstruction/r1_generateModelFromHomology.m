@@ -19,6 +19,7 @@
 
 % In this script, we will use the current version of Sco-GEM 1.2.0 
 % (tag: v.1.2.0 on https://github.com/SysBioChalmers/Sco-GEM)
+% (hash: 616dffb, viewed using git log or, if set, git graph)
 
 modelSco = importModel...
     ('../../ComplementaryData/reconstruction/templateModels/Sco-GEM.xml', false);
@@ -75,6 +76,10 @@ blastStructure = getBlast(organismID, fastaFile, refModelIDs, refFastaFiles);
 % We will generate the model using non-default parameters in the function:
 % E-value threshold of 10^-50, minimum alignment length of 90 and
 % identity of 40
+
+% These parameters were chosen to avoid excessively non-selective addition
+% of reactions in later steps to restore functional fructose metabolism (r4)
+
 modelSalb = getModelFromHomology(refModels, blastStructure, organismID, {},...
     1, 0, 10^-50, 90, 40, true);
 modelSalb.id = 'Salb-GEM';

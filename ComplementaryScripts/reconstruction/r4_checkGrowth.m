@@ -55,17 +55,21 @@ reset = modelSalb;
 
 %% Testing growth on fructose as sole carbon source
 
-modelSalb = setParam(modelSalb, 'lb', 'EX_fru_e', -0.8);
-[solution, hsSolOut] = solveLP(modelSalb, 0);
+modelSalb = setParam(modelSalb, 'lb', 'EX_fru_e', -0.8); 
+[solution, hsSolOut] = solveLP(modelSalb, 0); -1*solution.f
 
 % As shown, the model does not grow on fructose only
 
 % Also, for an unknown reason a subsequent gap-filling step does not
 % suggest any additional reactions to satisfy our specified conditions
-[ConnectedRxns, cannotConnect, addedRxns, newModel, exitFlag] = fillGaps...
-    (modelSalb, modelSco, false, true);
+%[ConnectedRxns, cannotConnect, addedRxns, newModel, exitFlag] = fillGaps...
+%    (modelSalb, modelSco, false, true);
 
 %% Adding reactions to support fructose utilization
+% This step is redundant now with current changes in step R1
+% However, some reactions do have associated genes so we wish to add those.
+% We will filter out any superflous reactions with no gene association in
+% later steps.
 
 % reactions through which carried flux in ScoGEM when FBA with fructose only;
 load('scrap/s4_missingRxns_fruPTS1');
@@ -84,10 +88,12 @@ fluxes = solution.x(rxnIndexes); noFlux = find(~fluxes);
 rxnIndexes = rxnIndexes(noFlux);
 
 % see added rxns that do not carry flux in the draft model
-% modelSalb.rxns(rxnIndexes)
-
 disp('The following added reactions do not carry flux in Salb-GEM');
+disp(modelSalb.rxns(rxnIndexes));
 disp(modelSalb.rxnNames(rxnIndexes));
+
+% We will remove the reactions that do not contribute to flux
+%modelSalb = removeReactions(modelSalb, modelSalb.rxns(rxnIndexes));
 
 modelSalb = setParam(modelSalb, 'lb', 'EX_fru_e', 0);
 
@@ -102,9 +108,8 @@ modelSalb = setParam(modelSalb, 'lb', 'EX_mnl_e', -0.8);
 % reactions through which carried flux in ScoGEM when FBA with fructose only;
 load('scrap/s4_missingRxns_mnl');
 
-% By doing the same procedure as with fructose previously, we have added
-% five more reactions
-modelSalb = addRxnsGenesMets(modelSalb, modelSco, missingRxns_mnl, false,...
+% When adding the reactions, we will also import the template grRules
+modelSalb = addRxnsGenesMets(modelSalb, modelSco, missingRxns_mnl, true,...
     'Included for functional mannitol metabolism');
 
 % Once again, verify a functional model
@@ -117,10 +122,12 @@ fluxes = solution.x(rxnIndexes); noFlux = find(~fluxes);
 rxnIndexes = rxnIndexes(noFlux);
 
 % see added rxns that do not carry flux in the draft model
-% modelSalb.rxns(rxnIndexes)
-
 disp('The following added reactions do not carry flux in Salb-GEM');
+disp(modelSalb.rxns(rxnIndexes));
 disp(modelSalb.rxnNames(rxnIndexes));
+
+% We will remove the reactions that do not contribute to flux
+%modelSalb = removeReactions(modelSalb, modelSalb.rxns(rxnIndexes));
 
 modelSalb = setParam(modelSalb, 'lb', 'EX_mnl_e', 0);
 
