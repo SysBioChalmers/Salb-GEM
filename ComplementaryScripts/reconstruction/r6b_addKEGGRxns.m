@@ -17,7 +17,7 @@
 % variables for ease of reference
 clear;
 load('scrap/r6a_Salb_KEGGModels.mat');
-load('scrap/r6b_Salb_KEGG2BiGG');
+load('scrap/r6a_Salb_KEGG2BiGG');
 load('scrap/r5_draftSalb_curateAnnotations');
 
 %% This approach uses RAVEN addRxnsGenesMets (directly from KEGGModel to draft)
@@ -239,7 +239,7 @@ model1.comps = {'c'};
 % The remaining reactions with no match (in this case, they occur in the
 % mitochondria or chloroplast, which for S. albus is irrelevant).
 idx = find(contains(rxns, ';'));
-model2 = removeReactions(KEGGModel, KEGGModel.rxns(idx)); %mets not removed
+model2 = removeReactions(model1, model1.rxns(idx)); %mets not removed
 rxns(idx) = '';
 
 model2.rxns = rxns;
@@ -316,4 +316,8 @@ idx2 = getIndexes(modelSalb, mets, 'mets');
  
 model2.metNames(idx1) = modelSalb.metNames(idx2);
 
-draft = addRxnsGenesMets(modelSalb, model2, model2.rxns, true, 'Additional reactions based on new genes from KEGG');
+modelSalb = addRxnsGenesMets(modelSalb, model2, model2.rxns, true, 'Additional reactions based on new genes from KEGG');
+
+%% save model to scrap folder
+
+save('scrap/r6b_draftSalb_addKEGGRxns.mat', 'modelSalb');

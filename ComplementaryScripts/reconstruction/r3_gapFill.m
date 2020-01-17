@@ -167,4 +167,4 @@ names_addedRxns = modelSalb.rxnNames(index);
 
 %% save model
 
-%save('scrap/r3_draftSalb_gapFill.mat', 'modelSalb');
+save('scrap/r3_draftSalb_gapFill.mat', 'modelSalb');

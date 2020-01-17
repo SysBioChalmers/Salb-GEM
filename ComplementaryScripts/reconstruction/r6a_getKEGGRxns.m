@@ -152,6 +152,4 @@ rxnIndex = find(cellfun(@isempty,KEGG2BiGG_Rxns));
 save('scrap/r6a_Salb_KEGGModels.mat','KEGGAnnotation','KEGGDraftModel', 'KEGGHomology', 'KEGGModel');
 
 % save MNX mapping
-save('scrap/r6b_Salb_KEGG2BiGG.mat','KEGG2BiGG_Mets','KEGG2BiGG_Rxns');
-
-
+save('scrap/r6a_Salb_KEGG2BiGG.mat','KEGG2BiGG_Mets','KEGG2BiGG_Rxns');

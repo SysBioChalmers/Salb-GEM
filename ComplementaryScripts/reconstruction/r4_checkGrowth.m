@@ -105,7 +105,7 @@ modelSalb = setParam(modelSalb, 'lb', 'EX_mnl_e', -0.8);
 
 %% Adding reactions to support mannitol utilization
 
-% reactions through which carried flux in ScoGEM when FBA with fructose only;
+% reactions through which carried flux in ScoGEM when FBA with mannitol only;
 load('scrap/s4_missingRxns_mnl');
 
 % When adding the reactions, we will also import the template grRules

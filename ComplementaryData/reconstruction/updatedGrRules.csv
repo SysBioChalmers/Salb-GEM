@@ -13,7 +13,7 @@ PC20M	precorrin-2 C20-methyltransferase	SCO1853	XNR_4670	Taken from blastStructu
 PRFGS	phosphoribosylformylglycinamidine synthase	SCO4077 and SCO4078 and SCO4079	XNR_2844 and XNR_2845 and XNR_2846	Taken from blastStructure (ranked by E value)	r3_gapFill
 QULNS	quinolinate synthase	SCO2162	XNR_4717	Taken from annotation in protein FASTA file; no match from blastStructure, genes not present in draft model; cross-referenced with KEGG annotated model	r3_gapFill
 THZPSN3	thiazole phosphate synthesis	SCO5486 and SCO2108	XNR_1347 and XNR_4770	Taken from blastStructure (ranked by E value)	r3_gapFill
-ATPS4r	ATP synthase (four protons for one ATP)	SCO5369 and SCO5368 and SCO5367 and SCO5374 and SCO5373 and SCO5372 and SCO5371 and SCO5370 and SCO5366	XNR_1465 and XNR_1466 and XNR_1467 and XNR_1460 and XNR_1461 and XNR_1462 and XNR_1463 and and XNR_1464 and XNR_1468	Taken from blastStructure (ranked by E value)	r3_gapFill
+ATPS4r	ATP synthase (four protons for one ATP)	SCO5369 and SCO5368 and SCO5367 and SCO5374 and SCO5373 and SCO5372 and SCO5371 and SCO5370 and SCO5366	XNR_1465 and XNR_1466 and XNR_1467 and XNR_1460 and XNR_1461 and XNR_1462 and XNR_1463 and XNR_1464 and XNR_1468	Taken from blastStructure (ranked by E value)	r3_gapFill
 CA2t4	calcium (Ca+2) transport in/out via proton antiport	SCO1962	XNR_0857 or XNR_2220 or XNR_4719	Taken from annotation in protein FASTA file; no match from blastStructure, genes not present in draft model	r3_gapFill
 CLt3_2	chloride transport out via proton antiport (2:1)	SCO5964 or SCO6320		No supporting information	r3_gapFill
 AGT	alanine:glyoxylate aminotransferase;alanine--glyoxylate aminotransferase;serine--pyruvate aminotransferase	SCO6412	XNR_5268	Taken from blastStructure (ranked by E value)	r3_gapFill
