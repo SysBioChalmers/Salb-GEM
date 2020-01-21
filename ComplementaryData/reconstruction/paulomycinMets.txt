@@ -1,0 +1,18 @@
+metabolite name	compartment	formula	annotation
+2-Amino-2-deoxyisochorismate	c	C10H11NO5	ChEBI:49197
+(5S,6S)-6-Amino-5-hydroxycyclohexa-1,3-diene-1-carboxylate	c	C7H9NO3	CHEBI:60849
+3-hydroxyanthranilate	c	C7H6NO3	CHEBI:36559
+2-carboxy-3-amino-1,4-dihydroquinone	c	C7H7NO4	
+2-carboxy-3-amino-6-hydroxy-1,4-dihydroquinone	c	C7H8NO5	
+dTDPallose	c	-	
+2-carboxy-3-amino-6-hydroxy-1,4-dihydroquinone, 6-allose	c		
+dTDP-4-dehydro-2,6-dideoxy-L-mannose	c	C16H24N2O14P2	CHEBI:29724
+dTDP-3-O-methyl-4-oxo-2,6-dideoxy-L-mannose	c	C17H26N2O14P2	kegg.compound:C21071
+TDP-L-paulomycose	c	-	
+6-hydroxyl-paulinone	c	-	
+13-O-deacetyl-paulomycin E	c	-	
+Paulyl-CoA	c	-	
+paulomycin A	c	-
+paulomycin B	c	-
+paulomycin E	c	-
+paulomycin F	c	-

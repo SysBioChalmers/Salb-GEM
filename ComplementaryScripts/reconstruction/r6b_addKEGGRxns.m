@@ -318,6 +318,10 @@ model2.metNames(idx1) = modelSalb.metNames(idx2);
 
 modelSalb = addRxnsGenesMets(modelSalb, model2, model2.rxns, true, 'Additional reactions based on new genes from KEGG');
 
+% There is an increase in the objective function after addition of the
+% reactions from KEGG
+[solution, hsSolOut] = solveLP(modelSalb, 0); -1*solution.f
+
 %% save model to scrap folder
 
 save('scrap/r6b_draftSalb_addKEGGRxns.mat', 'modelSalb');
