@@ -288,8 +288,8 @@ model2 = removeMets(model2, model2.mets(idx));
 % reactions differed by the met IDs they used: in one case using KEGG 'G'
 % metabolite IDs and another 'C' IDs.
 
-model2.rxns{151} = 'SAGH_glycan';
-model2.rxns{152} = 'UAGPT2_glycan';
+model2.rxns{148} = 'SAGH_glycan';
+model2.rxns{149} = 'UAGPT2_glycan';
 
 % To avoid redundancy, we will remove rxns that already exist in the draft
 % model. We can check what differs between their occurrences in the draft
