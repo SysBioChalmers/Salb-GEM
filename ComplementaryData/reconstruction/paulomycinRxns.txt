@@ -1,0 +1,19 @@
+reaction name	equation	grRule
+(2S)-2-amino-4-deoxychorismate:L-glutamate aminotransferase	chorismate[c] + L-Glutamine[c] => 2-Amino-2-deoxyisochorismate[c] + L-Glutamate[c] + H+[c]	XNR_0598 or XNR_4762
+(2S)-2-amino-4-deoxychorismate pyruvate-hydrolase	H2O[c] + 2-Amino-2-deoxyisochorismate[c] => Pyruvate[c] + (5S,6S)-6-Amino-5-hydroxycyclohexa-1,3-diene-1-carboxylate[c]	XNR_0597
+2,3-dihydro-2,3-dihydroxybenzoate dehydrogenase (3-hydroxyanthranilic acid-forming)	Nicotinamide adenine dinucleotide[c] + (5S,6S)-6-Amino-5-hydroxycyclohexa-1,3-diene-1-carboxylate[c] => Nicotinamide adenine dinucleotide - reduced[c] + H+[c] + 3-hydroxyanthranilate[c]	XNR_0596
+oxidoreductase	3-hydroxyanthranilate[c] + H2O[c] + Nicotinamide adenine dinucleotide - reduced[c] => 2-carboxy-3-amino-1,4-dihydroquinone[c] + Nicotinamide adenine dinucleotide[c]	
+hydroxylase	2-carboxy-3-amino-1,4-dihydroquinone[c] + Reduced FMN[c] + O2[c] <=> FMN[c] + H2O[c] + 2-carboxy-3-amino-6-hydroxy-1,4-dihydroquinone[c]	
+ribulose-5-phosphate 4-epimerase (glucose 3-epimerase)	dTDPglucose[c] <=> dTDPallose[c]	XNR_0580
+D-allose C-glycosyltransferase	dTDPallose[c] + 2-carboxy-3-amino-6-hydroxy-1,4-dihydroquinone[c] <=> dTDP[c] + 2-carboxy-3-amino-6-hydroxy-1,4-dihydroquinone, 6-allose[c]	XNR_0591
+dTDP-4-dehydro-6-deoxy-alpha-D-glucopyranose hydro-lyase (dTDP-2,6-dideoxy-D-glycero-hex-2-enos-4-ulose-forming)	dTDP-4-dehydro-6-deoxy-D-glucose[c] <=> H2O[c] + dTDP-3,4-didehydro-2,6-dideoxy-alpha-D-glucose[c]	XNR_0600
+dTDP-4-oxo-2,6-dideoxy-D-allose 5-epimerase	dTDP-4-dehydro-2,6-dideoxy-alpha-D-allose[c] <=> dTDP-4-dehydro-2,6-dideoxy-L-mannose[c]	XNR_0573
+S-adenosyl-L-methionine:dTDP-4-oxo-2,6-dideoxy-L-mannose 3-O-methyltransferase	S-Adenosyl-L-methionine[c] + dTDP-4-dehydro-2,6-dideoxy-L-mannose[c] <=> S-Adenosyl-L-homocysteine[c] + dTDP-3-O-methyl-4-oxo-2,6-dideoxy-L-mannose[c]	XNR_0574
+pyruvate:NAD+ 2-oxidoreductase (CoA-acetylating)	Nicotinamide adenine dinucleotide[c] + Pyruvate[c] + dTDP-3-O-methyl-4-oxo-2,6-dideoxy-L-mannose[c] <=> Nicotinamide adenine dinucleotide - reduced[c] + CO2[c] + Coenzyme A[c] + H+[c] + TDP-L-paulomycose[c]	XNR_0604 and XNR_0605
+NDP-L-paulomycose C-glycosyltransferase	TDP-L-paulomycose[c] + 6-hydroxyl-paulinone[c] <=> 13-O-deacetyl-paulomycin E[c]	XNR_0602 and XNR_0601
+paulyl-CoA transferase(Predicted GCN5-related N-acetyltransferase)	Paulyl-CoA[c] + 2-carboxy-3-amino-6-hydroxy-1,4-dihydroquinone, 6-allose[c] <=> 6-hydroxyl-paulinone[c] + Coenzyme A[c]	
+paulyl-CoA biosynthesis	Crotonoyl-CoA[c] => Paulyl-CoA[c]	XNR_0588 and XNR_0587 and XNR_0586 and XNR_0584 and XNR_0583 and XNR_0582 and XNR_0579 and XNR_0578
+paulomycin E synthesis (acetylation)	13-O-deacetyl-paulomycin E[c] + Acetyl-CoA[c] <=> paulomycin E[c]	XNR_0592
+paulomycin F synthesis (oxidoreductase)	paulomycin E[c] <=> paulomycin F[c]	
+paulomycin A synthesis	paulomycin F[c] + 2-Methylbutanoyl-CoA[c] <=> paulomycin A[c]	XNR_0610
+paulomycin B synthesis	paulomycin F[c] + Isobutyryl-CoA[c] <=> paulomycin B[c]	XNR_0610

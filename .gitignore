@@ -15,3 +15,8 @@ scrap
 
 # .DS_Store file
 *.DS_Store
+
+# KEGG generated files
+euk*
+prok*
+output
