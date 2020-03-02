@@ -1,6 +1,6 @@
 ## Salb-GEM: genome-scale metabolic model for _Streptomyces albus_ J1074
 
-![Version](https://badge.fury.io/gh/SysBioChalmers%2FSalb-GEM.svg) [![Zenodo](https://zenodo.org/badge/177741819.svg)](https://zenodo.org/badge/latestdoi/177741819) [![Gitter chat](https://badges.gitter.im/SysBioChalmers/Salb-GEM.svg)](https://gitter.im/SysBioChalmers/Salb-GEM)
+[![Version](https://badge.fury.io/gh/SysBioChalmers%2FSalb-GEM.svg)](https://badge.fury.io/gh/SysBioChalmers%2FSalb-GEM) [![Zenodo](https://zenodo.org/badge/177741819.svg)](https://zenodo.org/badge/latestdoi/177741819) [![Gitter chat](https://badges.gitter.im/SysBioChalmers/Salb-GEM.svg)](https://gitter.im/SysBioChalmers/Salb-GEM)
 
 #### Brief Model Description
 
