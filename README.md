@@ -1,5 +1,7 @@
 ## Salb-GEM: genome-scale metabolic model for _Streptomyces albus_ J1074
 
+![Version](https://badge.fury.io/gh/SysBioChalmers%2FSalb-GEM.svg) [![Zenodo](https://zenodo.org/badge/177741819.svg)](https://zenodo.org/badge/latestdoi/177741819) [![Gitter chat](https://badges.gitter.im/SysBioChalmers/Salb-GEM.svg)](https://gitter.im/SysBioChalmers/Salb-GEM)
+
 #### Brief Model Description
 
 This repository entails the genome-scale metabolic model (GEM) SalbGEM for *Streptomyces albidoflavus*, previously and more commonly recognized under the name *S. albus J1074*. 
@@ -30,4 +32,5 @@ This repository is administered by Cheewin Kittikunapong, Division of Systems an
 
 ### Citation
 
-* All model releases will be archived in Zenodo.
+* All model releases will be archived on [Zenodo](https://doi.org/10.5281/zenodo.3693406).
+* The associated manuscript is in preparation and will be available for citations in the near future.
