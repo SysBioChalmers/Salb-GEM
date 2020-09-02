@@ -209,12 +209,12 @@ end
 
 rxns{check(1)}		= 'SERD_L';     
 rxns{check(2)}		= 'BGLA';
-rxns{check(3)}		= 'GUACYC';
-rxns{check(4)}		= 'ALCD2x';
-rxns{check(5)}		= 'LEUTA';
-rxns{check(6)}		= 'GLYCL';
-rxns{check(7)}		= 'P5CRx';
-rxns{check(8)}		= 'P5CR';
+rxns{check(3)}		= 'ALCD2x';
+rxns{check(4)}		= 'LEUTA';
+rxns{check(5)}		= 'GLYCL';
+rxns{check(6)}		= 'P5CRx';
+rxns{check(7)}		= 'P5CR';
+rxns{check(8)}		= 'GUAD';
 rxns{check(9)}		= 'HACD1';
 rxns{check(10)}		= 'ECOAH1';
 rxns{check(11)}		= 'HPROa';
@@ -226,6 +226,9 @@ rxns{check(16)}		= 'HACD5';
 rxns{check(17)}		= 'HACD3';
 rxns{check(18)}		= 'HACD2';
 rxns{check(19)}		= 'TREH';
+rxns{check(20)}		= 'HKNDDH';
+rxns{check(21)}		= 'HKNTDH';
+
 
 %% Updating KEGG Model structure
 
@@ -259,8 +262,7 @@ model2.rxns = rxns;
 % species were erroneously assigned the met ID '2hmc_c'.
 
 % list of duplicate IDs
-dMets = {'udp_c' 'glu__L_c' 'ala__L_c' 'uacgam_c' 'sucr_c' '2hmc_c' ...
-    'uaGgla_c' 'uaaGgla_c' 'lcts_c'};
+dMets = {'glu__L_c' 'ala__L_c' 'sucr_c' '2hmc_c' 'lcts_c'};
 
 % We will 'merge' the rows of the S matrix for all the reactions that each
 % metabolite participates in. We will do this by summing the rows.
@@ -268,6 +270,7 @@ dMets = {'udp_c' 'glu__L_c' 'ala__L_c' 'uacgam_c' 'sucr_c' '2hmc_c' ...
 % all the reactions from the case of the previous two distinct metabolites.
 
 for i = 1:numel(dMets)
+    i
     metIdx = find(ismember(model2.mets, dMets{i}))
     model2.S(metIdx(1),:)
     model2.S(metIdx(end),:)
@@ -288,8 +291,7 @@ model2 = removeMets(model2, model2.mets(idx));
 % reactions differed by the met IDs they used: in one case using KEGG 'G'
 % metabolite IDs and another 'C' IDs.
 
-model2.rxns{148} = 'SAGH_glycan';
-model2.rxns{149} = 'UAGPT2_glycan';
+model2.rxns{154} = 'SAGH_glycan';
 
 % To avoid redundancy, we will remove rxns that already exist in the draft
 % model. We can check what differs between their occurrences in the draft
