@@ -6,7 +6,8 @@ oxidoreductase	3-hydroxyanthranilate[c] + H2O[c] + Nicotinamide adenine dinucleo
 hydroxylase	2-carboxy-3-amino-1,4-dihydroquinone[c] + Reduced FMN[c] + O2[c] <=> FMN[c] + H2O[c] + 2-carboxy-3-amino-6-hydroxy-1,4-dihydroquinone[c]	
 ribulose-5-phosphate 4-epimerase (glucose 3-epimerase)	dTDPglucose[c] <=> dTDPallose[c]	XNR_0580
 D-allose C-glycosyltransferase	dTDPallose[c] + 2-carboxy-3-amino-6-hydroxy-1,4-dihydroquinone[c] <=> dTDP[c] + 2-carboxy-3-amino-6-hydroxy-1,4-dihydroquinone, 6-allose[c]	XNR_0591
-dTDP-4-dehydro-6-deoxy-alpha-D-glucopyranose hydro-lyase (dTDP-2,6-dideoxy-D-glycero-hex-2-enos-4-ulose-forming)	dTDP-4-dehydro-6-deoxy-D-glucose[c] <=> H2O[c] + dTDP-3,4-didehydro-2,6-dideoxy-alpha-D-glucose[c]	XNR_0600
+dTDP-4-dehydro-6-deoxy-alpha-D-glucopyranose hydro-lyase (dTDP-2,6-dideoxy-D-glycero-hex-2-enos-4-ulose-forming)	dTDP-4-dehydro-6-deoxy-D-glucose[c] <=> H2O[c] + dTDP-2,6-dideoxy-D-glycero-hex-2-enos-4-ulose[c]	XNR_0600
+Spontaneous conversion (dTDP-2,6-dideoxy-D-glycero-hex-2-enos-4-ulose to dTDP-3,4-didehydro-2,6-dideoxy-alpha-D-glucose)	dTDP-2,6-dideoxy-D-glycero-hex-2-enos-4-ulose[c] <=> dTDP-3,4-didehydro-2,6-dideoxy-alpha-D-glucose[c]	
 dTDP-4-oxo-2,6-dideoxy-D-allose 5-epimerase	dTDP-4-dehydro-2,6-dideoxy-alpha-D-allose[c] <=> dTDP-4-dehydro-2,6-dideoxy-L-mannose[c]	XNR_0573
 S-adenosyl-L-methionine:dTDP-4-oxo-2,6-dideoxy-L-mannose 3-O-methyltransferase	S-Adenosyl-L-methionine[c] + dTDP-4-dehydro-2,6-dideoxy-L-mannose[c] <=> S-Adenosyl-L-homocysteine[c] + dTDP-3-O-methyl-4-oxo-2,6-dideoxy-L-mannose[c]	XNR_0574
 pyruvate:NAD+ 2-oxidoreductase (CoA-acetylating)	Nicotinamide adenine dinucleotide[c] + Pyruvate[c] + dTDP-3-O-methyl-4-oxo-2,6-dideoxy-L-mannose[c] <=> Nicotinamide adenine dinucleotide - reduced[c] + CO2[c] + Coenzyme A[c] + H+[c] + TDP-L-paulomycose[c]	XNR_0604 and XNR_0605

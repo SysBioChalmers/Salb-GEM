@@ -49,6 +49,8 @@ model                   = addMets(modelSalb,metsToAdd); clear metsToAdd;
 
 %% Addition of reactions in the paulomycin biosynthetic pathway
 
+% split reaction "dTDP-4-dehydro-6-deoxy-alpha-D-glucopyranose hydro-lyase"
+% into two reactions: an intermediate enzyme rxn and spontaneous rxn
 fid         = fopen('../../ComplementaryData/reconstruction/paulomycinRxns.txt');
 loadedData  = textscan(fid,'%q %q %q %q %q','delimiter',{'\t','"'},'MultipleDelimsAsOne',1,'TreatAsEmpty','_', 'HeaderLines', 1);
 fclose(fid);
