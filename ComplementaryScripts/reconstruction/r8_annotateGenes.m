@@ -136,6 +136,11 @@ model = ravenCobraWrapper(modelCb);
 % information to be lost across the two conversions
 modelSalb.geneMiriams = model.geneMiriams;
 
+%% Manual correction of known GPRs
+
+idx = find(contains(modelSalb.rxns, {'TECA1S', 'TECA2S', 'TECA3S'}));
+modelSalb = changeGrRules(modelSalb,modelSalb.rxns(idx),repmat({'XNR_1871 AND XNR_1873 AND XNR_1874'},3,1),true);
+
 %% Save model structure
 
 save('scrap/r8_draftSalb_annotateGenes', 'modelSalb');

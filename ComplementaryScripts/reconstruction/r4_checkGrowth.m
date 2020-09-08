@@ -161,6 +161,8 @@ modelSalb = setParam(modelSalb, 'lb', 'EX_sucr_e', 0);
 
 modelSalb = setParam(modelSalb, 'lb', 'EX_glc__D_e', -0.8);
 
+modelSalb = removeReactions(modelSalb, 'BIOMASS_SCO');
+
 % As demonstrated the current model does not grow on all of the above 
 % combined even if we have added rxns in for fructose and mannitol
 % metabolism. Because we lack further mechanistic information, we will 

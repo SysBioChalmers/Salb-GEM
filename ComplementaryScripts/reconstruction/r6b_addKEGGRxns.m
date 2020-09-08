@@ -318,6 +318,29 @@ idx2 = getIndexes(modelSalb, mets, 'mets');
  
 model2.metNames(idx1) = modelSalb.metNames(idx2);
 
+
+% import reversibility information computed using eQuilibrator
+fid         = fopen(['../../ComplementaryData/curation/reversibility/Salb_eQuilibrator_rev_filtered.csv']);
+loadedData  = textscan(fid,'%s %s %f %f %f %f %f %f','delimiter','\t', 'HeaderLines',1); fclose(fid);
+rxns        = loadedData{1};
+dGm         = loadedData{5};
+dGmStd      = loadedData{6};
+
+% change bounds of any reactions that satisfy our threshold condition of
+% -30 kJ/mol, referencing Gibbs free energy in physiological conditions
+for i = 1:length(rxns)
+    idx = find(ismember(model2.rxns, rxns(i)));
+    if ~isempty(idx)
+        if dGm(i) - dGmStd(i) < -30
+            model2.lb(idx) = 0;
+            %disp('forward only')
+        elseif dGm(i) + dGmStd(i) > -30
+            model2.lb(idx) = -1000;
+            %disp('reversible')
+        end
+    end
+end
+
 modelSalb = addRxnsGenesMets(modelSalb, model2, model2.rxns, true, 'Additional reactions based on new genes from KEGG');
 
 % There is an increase in the objective function after addition of the
