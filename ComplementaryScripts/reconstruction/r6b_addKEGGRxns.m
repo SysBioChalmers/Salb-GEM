@@ -5,7 +5,7 @@
 
 % Script R6-B: Curation of KEGG Model reactions to add to draft of Salb-GEM
 
-% Updated 2019-10-21
+% Updated 2020-11-03
 % Cheewin Kittikunapong
 
 % KEGG IDs
@@ -128,6 +128,8 @@ loadedData  = textscan(fid,'%s %s %s %s %s %s','delimiter','\t', 'HeaderLines',1
 ref.rxns        = loadedData{1};
 ref.rxnNames    = loadedData{2};
 ref.rxnEqns     = loadedData{3};
+
+ref.rxnAnno     = loadedData{5}; % use string 'http://identifiers.org/' to sort out desired fields
 
 ref.rxnMets     = regexprep(ref.rxnEqns, ' \+ ',';');
 ref.rxnMets     = regexprep(ref.rxnMets, ' <-> ',';');
@@ -328,24 +330,79 @@ dGmStd      = loadedData{6};
 
 % change bounds of any reactions that satisfy our threshold condition of
 % -30 kJ/mol, referencing Gibbs free energy in physiological conditions
+
 for i = 1:length(rxns)
     idx = find(ismember(model2.rxns, rxns(i)));
     if ~isempty(idx)
         if dGm(i) - dGmStd(i) < -30
             model2.lb(idx) = 0;
-            %disp('forward only')
+            %disp('forward only');
         elseif dGm(i) + dGmStd(i) > -30
             model2.lb(idx) = -1000;
-            %disp('reversible')
+            %disp('reversible');
         end
     end
 end
 
+% In addition to reversibility curation by eQuilibrator, some manual
+% curation had to be carried out accordingly to make sure phenomena make
+% sense (e.g. carbon fixation does not take place). Two particularly
+% important reactions to fix were P5CRx and HPROa to ensure reasonable
+% growth rate and coupled malonyl-CoA production.
+
+fid         = fopen(['../../ComplementaryData/curation/reversibility/manual_curation_KEGGrxns.csv']);
+loadedData  = textscan(fid,'%s %f','delimiter','\t', 'HeaderLines',1); fclose(fid);
+rxnsToCheck        = loadedData{1};
+reversibility      = loadedData{2};
+
+for i = 1:length(rxnsToCheck)
+    idx = find(ismember(model2.rxns, rxnsToCheck{i}));
+    if ~isempty(idx)
+        if reversibility(i) == 1
+            model2.lb(idx) = 0;
+            %disp('forward only');
+        elseif reversibility(i) == 0
+            model2.lb(idx) = -1000;
+            %disp('reversible');
+        elseif reversibility(i) == -1
+            model2.lb(idx) = 0;
+            %disp('reverse only - equation will be reversed');
+            constructEquations(model2,model2.rxns(idx))
+            model2.S(:,idx) = -1 .* model2.S(:,idx);
+            constructEquations(model2,model2.rxns(idx))
+        end
+    end
+end
+
+%% Supplementary script to highlight identification of crucial reactions to curate
+
+% combination matrix of 1 and 0 to remove KEGG rxns combinatorially
+% rxnsToCheck = {'ASPO2y', 'ASPO2', 'FADRx', 'GLYTA', 'AGTi', 'SPT_syn','SPTc', ...
+%     'GLYCLTDy', 'ASNN', 'GUAD', 'PGMT_B', 'P5CRx', 'HPROa'};% generate matrix
+% m = length(rxnsToCheck);
+% mat = logical(dec2bin(0:2^m-1,m)-'0'); % Thanks to Matt J: https://www.mathworks.com/matlabcentral/answers/114863-how-do-i-make-a-2-m-x-m-dimensional-matrix-containing-all-possible-combinations-of-1s-and-0s
+
+% mu = [];
+% q = [];
+% for i = 1:length(mat)
+%     model = removeReactions(modelSalb, rxnsToCheck(mat(i,:)));
+%     sol = solveLP(model);
+%     mu = [mu; -sol.f];
+%     model = addExchangeRxn(model, 'malcoa_c', 0, 1000);
+%     model = changeRxnBounds(model, 'BIOMASS_SALB', -sol.f * 0.99, 'l');
+%     model = changeObjective(model, model.rxns(end));
+%     sol = solveLP(model);
+%     q = [q; -sol.f];
+% end
+
+%% Add KEGG reactions to the original draft model
+
 modelSalb = addRxnsGenesMets(modelSalb, model2, model2.rxns, true, 'Additional reactions based on new genes from KEGG');
 
-% There is an increase in the objective function after addition of the
-% reactions from KEGG
-[solution, hsSolOut] = solveLP(modelSalb, 0); -1*solution.f
+% There is a slight increase in the objective function after addition of the
+% reactions from KEGG (was originally much more pronounced in a previous
+% version when P5CRx and HPROa were not curated for reversibility.
+% [solution, hsSolOut] = solveLP(modelSalb, 0); -1*solution.f
 
 %% save model to scrap folder
 
