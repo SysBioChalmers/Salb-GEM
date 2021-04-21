@@ -19,6 +19,8 @@ clear;
 load('scrap/r4_draftSalb_checkGrowth');
 load('scrap/r1_scoGEM_newGrRules');
 
+modelSco_new = importModel('../../ComplementaryData/reconstruction/templateModels/Sco-GEM_1.3.0.xml');
+
 %% Reactions with grRules from template
 
 % With RAVEN fillGaps, we added reactions with grRules in SCO terms.
@@ -39,15 +41,18 @@ fid         = fopen(['../../ComplementaryData/reconstruction/updatedGrRules.csv'
 loadedData  = textscan(fid,'%s %s %s %s %s %s','delimiter','\t', 'HeaderLines',1); fclose(fid);
 rxns        = loadedData{1};
 newGrRules  = loadedData{4};
-
-modelSalb = changeGrRules(modelSalb,rxns,newGrRules,true);
-
+for i = 1:length(rxns)
+    if find(ismember(modelSalb.rxns, rxns(i)))
+        modelSalb = changeGrRules(modelSalb,rxns(i),newGrRules(i),true);
+    end
+end
+%%
 % Removing remaining SCO genes from model structure
 geneIndex = find(contains(modelSalb.genes, 'SCO'));
 modelSalb = removeGenes(modelSalb, modelSalb.genes(geneIndex));
 
 % Removing any unused metabolite
-modelSalb = removeMets(modelSalb,all(modelSalb.S == 0,2),false,true,true,true);
+% modelSalb = removeMets(modelSalb,all(modelSalb.S == 0,2),false,true,true,true);
 
 %% Remove unconnected non-gene associated reactions
 subGraphs = getAllSubGraphs(modelSalb);
@@ -60,7 +65,7 @@ for i=2:size(subGraphs,2)
     [~,col,~]   = find(rxnIdx);
     col         = unique(col);
     grRules     = modelSalb.grRules(col);
-    if isempty(grRules{1})
+    if isempty(grRules)
          rxnToRemove = [rxnToRemove; col];
     end
 end
@@ -89,6 +94,25 @@ for n = 1:length(modelSalb.grRules)
     end
 end
 
+%% Correcting the grRules for complexes
+% In later analyses, it was discovered that the grRules for complexes
+% involving parantheses and ANDs were not accounted for by the previous
+% step, thus redundant GPRs were assigned. More importantly, GPRs may also
+% be erroneous if isozymes existed for a particular homologue pair
+% resulting in GPRs that were written incorrectly upon obtainment of the
+% initial draft model from protein homology with Sco-GEM.
+
+% Importing the list of fixed grRules
+fid         = fopen(['../../ComplementaryData/reconstruction/fixedGrRules_complexes.csv']);
+loadedData  = textscan(fid,'%s %s %s %s %s','delimiter','\t', 'HeaderLines',1); fclose(fid);
+rxns        = loadedData{1};
+newGrRules  = loadedData{5};
+for i = 1:length(rxns)
+    if find(ismember(modelSalb.rxns, rxns(i)))
+        modelSalb = changeGrRules(modelSalb,rxns(i),newGrRules(i),true);
+    end
+end
+
 %% Update MIRIAM annotations using our template model
 
 % Certain reactions added after step R1 when we generated the draft model
@@ -100,6 +124,12 @@ modelSalb.rxnMiriams(matchIdx(match)) = modelSco.rxnMiriams(match);
 
 [match, matchIdx]   = ismember(modelSco.mets,modelSalb.mets);
 modelSalb.metMiriams(matchIdx(match)) = modelSco.metMiriams(match);
+
+%% Update metabolite species with chemical formulae annotation
+mets = intersect(modelSalb.mets, modelSco_new.mets);
+idx1 = getIndexes(modelSalb, mets, 'mets');
+idx2 = getIndexes(modelSco_new, mets, 'mets');
+modelSalb.metFormulas(idx1) = modelSco_new.metFormulas(idx2);
 
 %% Save the model in .mat format
 

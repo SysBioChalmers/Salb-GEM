@@ -33,11 +33,11 @@ load('scrap/r5_draftSalb_curateAnnotations');
 
 % As of this time, the current KEGG release supported by RAVEN is 91.0.
 % KEGG Orthology-trained HMMs include:
-% [prok100_kegg91, prok90_kegg91, prok50_kegg91]
+% [prok100_kegg94, prok90_kegg94, prok50_kegg94]
 
 % We will use the Hidden Markov Models (HMMs) trained for prokaryotic
 % species with a protein redundancy cut-off of 90%
-dataDir = 'prok90_kegg91';
+dataDir = 'prok90_kegg94';
 
 % If this is your first time running getKEGGModelForOrganism on your
 % device, it is normal for the run time to be longer as RAVEN is generating

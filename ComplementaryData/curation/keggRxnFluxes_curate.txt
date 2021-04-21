@@ -1,0 +1,108 @@
+rxns	rxnNames	rxnEquations	sol.x R5	sol.x (min flux) R5	sol.x (min flux) FINAL MODEL	mu when added	in Sco-GEM?	oldDir	newDirection	changeDir
+3OAR40_1	(3R)-3-hydroxybutanoyl-[acyl-carrier protein]:NADP+ oxidoreductase	3haACP_c + nadp_c <==> actACP_c + h_c + nadph_c	-1000,00	0,00	0,00	0,07	0	0	1	1
+ASNTRAT	Asp-tRNA(Asn):L-glutamine amido-ligase (ADP-forming)	adp_c + glu__L_c + pi_c + asntrna_c --> atp_c + gln__L_c + h2o_c + asptrna_asn_c	0,00	0,00	0,00	0,07	0	1	-1	-2
+BATHORHODOPSINI		bathorhodopsin_c --> lumirhodopsin_c	0,00	0,00	0,00	0,07	0	1	1	0
+BLACT	Penicillin hydrolase	h2o_c + pencil_c --> pencilca_c	0,00	0,00	0,00	0,07	0	1	1	0
+COA1819ZD9DS	steroyl-CoA,hydrogen-donor:oxygen oxidoreductase	(2) h_c + o2_c + stcoa_c + (2) focytb5_c --> (2) h2o_c + ocdce9coa_c + (2) ficytb5_c	0,00	0,00	0,00	0,07	0	1	1	0
+DDMCITALOR	didemethylcitalopram:oxygen oxidoreductase(deaminating)(flavin-containing)	h2o_c + o2_c + ddmcital_c --> h2o2_c + nh4_c + citalald_c	0,00	0,00	0,00	0,07	0	1	1	0
+DMT	S-adenosyl-L-methionine:DNA (cytosine-5-)-methyltransferase	amet_c + dnac_c <==> ahcys_c + dna5mtc_c	0,00	0,00	0,00	0,07	1	0	0	0
+GLNTRAT	Glu-tRNA(Gln):L-glutamine amido-ligase(ADP-forming)	adp_c + glntrna_c + glu__L_c + pi_c <==> atp_c + gln__L_c + h2o_c + glutrna_gln_c	0,00	0,00	0,00	0,07	0	0	0	0
+LUMIRHODOPSINI		lumirhodopsin_c --> metarhodopsin_c	0,00	0,00	0,00	0,07	0	1	1	0
+NTRLASE	3-Indoleacetonitrile aminohydrolase	(2) h2o_c + ind3acnl_c <==> ind3ac_c + nh4_c	0,00	0,00	0,00	0,07	0	0	0	0
+NTRLASE2	alpha-Aminopropiononitrile aminohydrolase	(2) h2o_c + aprop_c <==> ala__L_c + nh4_c	0,00	0,00	0,00	0,07	0	0	0	0
+NTRLASE3	gamma-Amino-gamma-cyanobutanoate aminohydrolase	(2) h2o_c + acybut_c <==> glu__L_c + nh4_c	0,00	0,00	0,00	0,07	0	0	0	0
+SAGH_glycan		h2o_c + sucr_c <==> Glc_aD_c + fru_B_c	1000,00	0,00	0,00	0,07	0	0	1	1
+SELCYSS	selenophosphate:L-seryl-tRNASec selenium transferase	selnp_c + sertrna_sec_c <==> pi_c + sectrna_c	0,00	0,00	0,00	0,07	0	0	0	0
+KAS15	acetyl-CoA:malonyl-[acyl-carrier protein] C-acetyltransferase (decarboxylating)	accoa_c + malACP_c <==> actACP_c + co2_c + coa_c	-1000,00	-52,01	0,00	0,12	1	0	1	1
+ASPO2y	L-aspartate:NADP+ oxidoreductase (deaminating)	asp__L_c + nadp_c <==> h_c + iasp_c + nadph_c	-1000,00	0,00	0,00	0,07	0	0	1	1
+ASPO2	L-aspartate:NAD+ oxidoreductase (deaminating)	asp__L_c + nad_c <==> h_c + iasp_c + nadh_c	0,00	0,00	0,00	0,07	0	0	1	1
+HSERTA	Acetyl-CoA:L-homoserine O-acetyltransferase	accoa_c + hom__L_c --> achms_c + coa_c	0,01	0,00	0,01	0,07	0	1	1	0
+NFORGLUAH	N-Formyl-L-glutamate amidohydrolase	Nforglu_c + h2o_c --> for_c + glu__L_c	0,00	0,00	0,00	0,07	0	1	1	0
+FADRx	FADH2:NAD+ oxidoreductase	fadh2_c + nad_c <==> fad_c + h_c + nadh_c	1000,00	0,00	0,00	0,07	0	0	1	1
+2AMACHYD	2-aminoacrylate aminohydrolase	2amac_c + h2o_c <==> nh4_c + pyr_c	0,00	0,00	0,00	0,07	0	0	0	0
+GLYTA	Glycine:2-oxoglutarate aminotransferase	akg_c + gly_c <==> glu__L_c + glx_c	-1000,00	1,20	0,00	0,07	0	0	0	0
+AGTi	L-Alanine:glyoxylate aminotransferase	ala__L_c + glx_c <==> gly_c + pyr_c	-1000,00	-1,24	0,00	0,07	0	0	0	0
+MMM2	(R)-Methylmalonyl-CoA CoA-carbonylmutase	mmcoa__R_c <==> succoa_c	-999,91	0,00	0,00	0,07	0	0	0	0
+PDH	pyruvate:NAD+ 2-oxidoreductase (CoA-acetylating);	coa_c + nad_c + pyr_c --> accoa_c + co2_c + h_c + nadh_c	0,00	0,00	0,00	0,07	1	1	1	0
+SPT_syn	L-Serine:glyoxylate aminotransferase	glx_c + ser__L_c <==> gly_c + hpyr_c	-999,78	0,61	0,00	0,07	0	0	0	0
+34DHOXPEGOX	3,4-dihydroxyphenylethyleneglycol:NAD+ oxidoreductase	nad_c + 34dhoxpeg_c <==> h_c + nadh_c + 34dhmald_c	0,00	0,00	0,00	0,07	0	0	1	1
+3HOPCD	3-hydroxypimeloyl-CoA:NAD+ oxidoreductase	nad_c + 3hpimcoa_c <==> h_c + nadh_c + 3opimcoa_c	0,00	0,00	0,00	0,07	0	0	1	1
+3HPCOAHYD	3-hydroxyisobutyryl-CoA hydrolase	coa_c + 3hpp_c <==> 3hpcoa_c + h2o_c + h_c	0,09	0,00	0,00	0,07	0	0	0	0
+3HXKYNOXDA	3-Hydroxykynurenamine:oxygen oxidoreductase(deaminating)(flavin-containing)	o2_c + 3hxkynam_c --> h2o2_c + nh4_c + 48dhoxquin_c	0,00	0,00	0,00	0,07	0	1	1	0
+3MOXTYROX	3-Methoxytyramine:oxygen oxidoreductase (deaminating) (copper-containing)	h2o_c + o2_c + 3moxtyr_c --> h2o2_c + nh4_c + 3mox4hpac_c	0,00	0,00	0,00	0,07	0	1	1	0
+41R2A1H12BOOX	4-[(1R)-2-Amino-1-hydroxyethyl]-1,2-benzenediol:oxygen oxidoreductase(deaminating)(flavin-containing)	h2o_c + o2_c + nrpphr_c --> h2o2_c + nh4_c + 34dhmald_c	0,00	0,00	0,00	0,07	0	1	1	0
+42A12BOOX	4-(2-Aminoethyl)-1,2-benzenediol:oxygen oxidoreductase(deaminating)(flavin-containing)	h2o_c + o2_c + dopa_c --> h2o2_c + nh4_c + 34dhpac_c	0,00	0,00	0,00	0,07	0	1	1	0
+4OT2	2-Hydroxy-5-methyl-cis,cis-muconate 2-Oxo-5-methyl-cis-muconate isomerase	hmccm_c <==> 2omcm_c	0,00	0,00	0,00	0,07	0	0	0	0
+5HOXINOXDA	5-Hydroxytryptamine:oxygen oxidoreductase(deaminating)(flavin-containing)	h2o_c + o2_c + srtn_c --> h2o2_c + nh4_c + 5hoxindact_c	0,00	0,00	0,00	0,07	0	1	1	0
+6TXAN5MPAML	6-thioxanthine 5-monophosphate:L-glutamine amido-ligase (AMP-forming)	atp_c + gln__L_c + h2o_c + 6txan5mp_c <==> amp_c + glu__L_c + ppi_c + 6tgsnmp_c	0,00	0,00	0,00	0,07	0	0	1	1
+AACTOOR	aminoacetone:oxygen oxidoreductase(deaminating)	h2o_c + o2_c + aact_c --> h2o2_c + mthgxl_c + nh4_c	0,00	0,00	0,00	0,07	0	1	1	0
+ACAS_2ahbut	(S)-2-Aceto-2-hydroxybutanoate pyruvate-lyase (carboxylating)	2obut_c + 2ahethmpp_c <==> 2ahbut_c + thmpp_c	0,00	0,00	0,00	0,07	0	0	1	1
+AHAL	O-acetyl-L-homoserine acetate-lyase (L-homocysteine forming)	achms_c + h_c + trdrd_c + tsul_c <==> ac_c + hcys__L_c + so3_c + trdox_c	0,01	0,00	0,00	0,07	0	0	1	1
+AHSERL4	O3-acetyl-L-serine:thiosulfate 2-amino-2-carboxyethyltransferase (reducing, L-cysteine-forming);	acser_c + h_c + trdrd_c + tsul_c <==> ac_c + cys__L_c + so3_c + trdox_c	-0,01	0,00	0,00	0,07	0	0	0	0
+AMID2	2-phenylacetamide amidohydrolase	h2o_c + pad_c <==> nh4_c + pac_c	0,00	0,00	0,00	0,07	0	0	0	0
+AOBUTDs	L-2-amino-3-oxobutanoate decarboxylation (spontaneous)	co2_c + aact_c <==> 2aobut_c + h_c	0,00	0,00	0,00	0,07	1	0	-1	-1
+APENTAMAH	5-aminopentanamide amidohydrolase	h2o_c + 5apentam_c <==> nh4_c + 5aptn_c	0,00	0,00	0,00	0,07	0	0	0	0
+APRTO2	N-Acetylputrescine:oxygen oxidoreductase(deaminating)(flavin-containing)	h2o_c + o2_c + aprut_c --> h2o2_c + n4abutn_c + nh4_c	0,00	0,00	0,00	0,07	0	1	1	0
+BDG2HCGHD	beta-D-Glucosyl-2-coumarinate glucohydrolase	h2o_c + bdg2hc_c <==> glc__D_c + 2coum_c	0,00	0,00	0,00	0,07	0	0	0	0
+BTCOARx	butanal:NAD+ oxidoreductase (CoA-acylating)	coa_c + nad_c + btal_c <==> btcoa_c + h_c + nadh_c	0,00	0,00	0,00	0,07	0	0	1	1
+CBMD	Carbamate deaminase	(2) h_c + cbm_c <==> co2_c + nh4_c	0,00	0,00	0,00	0,07	1	0	1	1
+CYSSADS	3-Sulfino-L-alanine 4-carboxy-lyase	3sala_c <==> ala__L_c + so2_c	0,00	0,00	0,00	0,07	0	0	0	0
+DHBD	2,3-dihydro-2,3-dihydroxybenzoate:NAD+ oxidoreductase	nad_c + 23ddhb_c --> h_c + nadh_c + 23dhb_c	0,00	0,00	0,00	0,07	1	1	1	0
+ECH_3hivcoa	3-hydroxyisovaleryl-CoA hydro-lyase	3hivcoa_c <==> 3mb2coa_c + h2o_c	0,00	0,00	0,00	0,07	0	0	0	0
+FALGTHLs	S-(hydroxymethyl)glutathione formaldehyde-lyase (glutathione-forming);	fald_c + gthrd_c <==> hmgth_c	0,00	0,00	0,00	0,07	1	0	0	0
+FDMO2	methanesulfonate,FMNH2:oxygen oxidoreductase	fmnh2_c + o2_c + mso3_c <==> fald_c + fmn_c + h2o_c + so3_c	0,00	0,00	0,00	0,07	0	0	0	0
+FFSD	Sucrose 6-phosphate fructohydrolase	h2o_c + suc6p_c <==> fru_c + g6p_c	0,00	0,00	0,00	0,07	0	0	0	0
+G1PTT	dTTP:alpha-D-glucose-1-phosphate thymidylyltransferase	dttp_c + g1p_c <==> dtdpglu_c + ppi_c	0,00	0,00	0,00	0,07	1	0	0	0
+GALO	D-Galactose:oxygen 6-oxidoreductase	gal_c + h2o_c + o2_c --> h2o2_c + galctn__D_c	0,00	0,00	0,00	0,07	0	1	1	0
+GLNSP2	beta-D-GlcNAc-(1->4)-Mur2Ac(oyl-L-Ala-gamma-D-Glu-L-Lys-D-Ala-D-Ala)-diphospho-ditrans,octacis-undecaprenol:L-glutamine amidoligase (ADP-forming)	atp_c + nh4_c + uaaGgla_c <==> adp_c + pi_c + uaaGgtla_c	0,00	0,00	0,00	0,07	0	0	0	0
+GLUKA	ATP:alpha-D-glucose 6-phosphotransferase	atp_c + Glc_aD_c <==> adp_c + g6p_A_c	-999,21	0,00	-11,72	0,07	0	0	0	0
+GMHEPAT	ATP:D-glycero-beta-D-manno-heptose 1-phosphate adenylyltransferase	atp_c + gmhep1p_c <==> ppi_c + adphep_DD_c	0,00	0,00	0,00	0,07	1	0	1	1
+HEX10	ATP:D-glucosamine 6-phosphotransferase	atp_c + gam_c <==> adp_c + gam6p_c	0,00	0,00	0,00	0,07	0	0	1	1
+HIBH	(S)-3-Hydroxyisobutyryl-CoA hydrolase	3hibutcoa_c + h2o_c --> coa_c + 3hib_c	0,00	0,00	0,00	0,07	0	1	1	0
+HKNDDH	2-hydroxy-6-oxonona-2,4-diene-1,9-dioate succinylhydrolase	succ_c + op4en_c <==> h2o_c + hkndd_c	0,00	0,00	0,00	0,07	0	0	0	0
+HKNTDH	(2Z,4E,7E)-2-Hydroxy-6-oxonona-2,4,7-triene-1,9-dioate fumarylhydrolase	h2o_c + hkntd_c --> fum_c + op4en_c	0,00	0,00	0,00	0,07	0	1	1	0
+HMNO	3-Hydroxy-2-methylpropanoate:NAD+ oxidoreductase	nad_c + 3hib_c <==> h_c + mmtsa_c + nadh_c	0,00	0,00	0,00	0,07	0	0	1	1
+ICHORT	Isochorismate pyruvate-hydrolase	h2o_c + ichor_c --> pyr_c + 23ddhb_c	0,00	0,00	0,00	0,07	0	1	1	0
+LACZ	B-galactosidase	h2o_c + lcts_c <==> gal_c + glc__D_c	999,21	0,00	11,72	0,07	1	0	1	1
+LCGH	Lactose galactohydrolase	h2o_c + lcts_c <==> gal_c + Glc_aD_c	-999,21	0,00	-11,72	0,07	0	0	1	1
+LPPGS	GTP:2-phospho-L-lactate guanylyltransferase	gtp_c + 2plac__L_c <==> lppg_c + ppi_c	0,00	0,00	0,00	0,07	1	0	0	0
+MCITD	(2S,3S)-2-hydroxybutane-1,2,3-tricarboxylate hydro-lyase [(Z)-but-2-ene-1,2,3-tricarboxylate-forming]	2mcit_c <==> h2o_c + 2mcacn_c	0,00	0,00	0,00	0,07	0	0	0	0
+MCITL2	(2S,3R)-3-hydroxybutane-1,2,3-tricarboxylate pyruvate-lyase (succinate-forming)	micit_c <==> pyr_c + succ_c	0,00	0,00	0,00	0,07	0	0	0	0
+MCITS	propanoyl-CoA:oxaloacetate C-propanoyltransferase (thioester-hydrolysing, 1-carboxyethyl-forming);	coa_c + 2mcit_c <==> h2o_c + oaa_c + ppcoa_c	0,00	0,00	0,00	0,07	0	0	0	0
+MSAR	3-hydroxypropionate:NADP+ oxidoreductase	nadp_c + 3hpp_c <==> h_c + msa_c + nadph_c	-0,09	0,00	0,00	0,07	0	0	1	1
+NBAH	N-Benzoylglycine amidohydrolase	h2o_c + bgly_c <==> bz_c + gly_c	0,00	0,00	0,00	0,07	0	0	0	0
+OPAH	5-oxo-L-proline amidohydrolase (ATP-hydrolysing)	atp_c + (2) h2o_c + 5oxpro_c <==> adp_c + glu__L_c + pi_c	0,00	0,00	0,00	0,07	0	0	0	0
+PEAMNO	Phenethylamine:oxygen oxidoreductase (deaminating)	h2o_c + o2_c + peamn_c --> h2o2_c + nh4_c + pacald_c	0,00	0,00	0,00	0,07	1	1	1	0
+PTRCAT1	acetyl-CoA:putrescine N-acetyltransferase	accoa_c + ptrc_c <==> coa_c + aprut_c	0,00	0,00	0,00	0,07	1	0	0	0
+RAFH	Raffinose fructohydrolase	h2o_c + raffin_c <==> fru_c + melib_c	0,00	0,00	0,00	0,07	0	0	0	0
+RBK_Dr	ATP:D-ribulose 5-phosphotransferase	atp_c + rbl__D_c <==> adp_c + ru5p__D_c	0,00	0,00	0,00	0,07	0	0	0	0
+RBK_L1	ATP:L-ribulose 5-phosphotransferase	atp_c + rbl__L_c <==> adp_c + ru5p__L_c	0,00	0,00	0,00	0,07	1	0	0	0
+RBP4E	L-ribulose-5-phosphate 4-epimerase	ru5p__L_c <==> xu5p__D_c	0,00	0,00	0,00	0,07	1	0	0	0
+RBTDG	Ribitol:NAD+ 2-oxidoreductase	nad_c + rbt_c <==> h_c + nadh_c + rbl__D_c	0,00	0,00	0,00	0,07	1	0	1	1
+RDH1	retinol:NAD+ oxidoreductase	nad_c + retinol_c <==> h_c + nadh_c + retinal_c	0,00	0,00	0,00	0,07	0	0	1	1
+RE0691C		4abutn_c --> h2o_c + CE1944_c	0,00	0,00	0,00	0,07	1	1	1	0
+RE2034C	2-aminobutanoate:2-oxoglutarate aminotransferase	akg_c + C02356_c <==> 2obut_c + glu__L_c	0,00	0,00	0,00	0,07	0	0	0	0
+SAGH	sucrose alpha-glucohydrolase	h2o_c + sucr_c <==> Glc_aD_c + fru_B_c	-1000,00	0,00	0,00	0,07	0	0	1	1
+SELGTHR	Selenate glutathione reductase	(4) gthrd_c + (2) h_c + slnt_c <==> gthox_c + (3) h2o_c + dgslnt_c	0,00	0,00	0,00	0,07	0	0	0	0
+SELNPS	ATP:selenide, water phosphotransferase	atp_c + h2o_c + seln_c <==> amp_c + pi_c + selnp_c	0,00	0,00	0,00	0,07	0	0	0	0
+SERD_D	D-serine ammonia-lyase	ser__D_c --> nh4_c + pyr_c	0,00	0,00	0,00	0,07	0	1	1	0
+SPHPL	Sphinganine-1-phosphate pamlmitaldehyde-lyase	sph1p_c <==> ethamp_c + hxdcal_c	0,00	0,00	0,00	0,07	0	0	0	0
+THMP	thiamin monophosphate phosphohydrolase	h2o_c + thmmp_c --> pi_c + thm_c	0,00	0,00	0,00	0,07	0	1	1	0
+TRYPTAOX	Tryptamine:oxygen oxidoreductase(deaminating)	h2o_c + o2_c + trypta_c --> h2o2_c + nh4_c + id3acald_c	0,00	0,00	0,00	0,07	0	1	1	0
+TYROXDAc	Tyramine:oxygen oxidoreductase(deaminating)(flavin-containing)	h2o_c + o2_c + tym_c --> h2o2_c + nh4_c + 4hoxpacd_c	0,00	0,00	0,00	0,07	0	1	1	0
+VNTDM	vanillate:oxygen oxidoreductase (demethylating)	h_c + nadh_c + o2_c + vanlt_c --> fald_c + h2o_c + nad_c + 34dhbz_c	0,00	0,00	0,00	0,07	1	1	1	0
+SPTc	L-Serine:pyruvate aminotransferase	pyr_c + ser__L_c <==> ala__L_c + hpyr_c	-0,07	0,62	0,06	0,07	0	0	0	0
+FEROc	Fe(II):oxygen oxidoreductase;	(4) fe2_c + (4) h_c + o2_c --> (2) h2o_c + (4) fe3_c	0,00	0,00	0,00	0,07	0	1	1	0
+LALDO2x	(R)-Lactaldehyde:NAD+ oxidoreductase	lald__D_c + nad_c <==> h_c + mthgxl_c + nadh_c	-1000,00	0,00	0,00	0,07	0	0	1	1
+PDE1	adenosine 3,5-phosphate 5-nucleotidohydrolase	camp_c + h2o_c --> amp_c	0,00	0,00	0,00	0,07	1	1	1	0
+ATHRDHr	L-allo-threonine:NADP+ 3-oxidoreductase	athr__L_c + nadp_c <==> 2aobut_c + h_c + nadph_c	999,97	0,00	0,00	0,07	0	0	1	1
+GLYCLTDy	glycolate:NADP+ oxidoreductase	glyclt_c + nadp_c <==> glx_c + h_c + nadph_c	0,00	0,00	0,00	0,07	0	0	1	1
+ASNN	L-asparagine amidohydrolase	asn__L_c + h2o_c <==> asp__L_c + nh4_c	-0,01	0,00	-0,01	0,07	1	0	0	0
+ACALD	acetaldehyde:NAD+ oxidoreductase (CoA-acetylating)	acald_c + coa_c + nad_c <==> accoa_c + h_c + nadh_c	-1000,00	-0,02	-0,03	0,07	0	0	1	1
+GUAD	Guanine aminohydrolase	gua_c + h2o_c <==> nh4_c + xan_c	-0,03	-0,02	-0,03	0,07	0	0	0	0
+PGMT_B	beta-D-Glucose 1-phosphate 1,6-phosphomutase	g1p_B_c <==> g6p_B_c	-0,03	-0,17	11,97	0,07	0	0	0	0
+G3PT	sn-glycerol-3-phosphate phosphohydrolase	glyc3p_c + h2o_c <==> glyc_c + pi_c	0,00	-0,68	-0,28	0,08	0	0	1	1
+TREH	alpha,alpha-trehalose glucohydrolase	h2o_c + tre_c <==> (2) glc__D_c	-1000,00	-0,79	-12,23	0,08	0	0	1	1
+ASP4DC	L-aspartate 4-carboxy-lyase (L-alanine-forming)	asp__L_c <==> ala__L_c + co2_c	-1000,00	-51,95	-0,73	0,12	0	0	1	1
+P5CRx	L-Proline:NAD+ 5-oxidoreductase	nad_c + pro__L_c <==> 1pyr5c_c + h_c + nadh_c	-0,22	52,01	11,97	0,12	0	0	1	1
+HPROa	trans-4-Hydroxy-L-proline:NAD+ 5-oxidoreductase	4hpro_LT_c + nad_c <==> 1p3h5c_c + h_c + nadh_c	0,00	52,01	0,00	0,12	0	0	1	1

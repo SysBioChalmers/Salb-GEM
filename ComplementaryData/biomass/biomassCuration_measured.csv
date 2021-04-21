@@ -1,0 +1,37 @@
+metName	metID	pseudoRxn	c
+dATP	datp_c	DNA	-0.02140
+dCTP	dctp_c	DNA	-0.01460
+dGTP	dgtp_c	DNA	-0.01460
+dTTP	dttp_c	DNA	-0.02140
+H+	h_c	DNA	0.07201
+Diphosphate	ppi_c	DNA	0.07201
+DNA pseudometabolite	dna_c	DNA	1
+ATP	atp_c	RNA	-0.06627
+CTP	ctp_c	RNA	-0.19219
+GTP	gtp_c	RNA	-0.16887
+UTP	utp_c	RNA	-0.06359
+H+	h_c	RNA	0.49091
+Diphosphate	ppi_c	RNA	0.49091
+RNA pseudometabolite	rna_c	RNA	1
+L-Alanine	ala__L_c	protein	-0.25070
+L-Arginine	arg__L_c	protein	-0.14393
+L-Asparagine	asn__L_c	protein	-0.02699
+L-Aspartate	asp__L_c	protein	-0.10207
+L-Cysteine	cys__L_c	protein	-0.01300
+L-Glutamine	gln__L_c	protein	-0.04644
+L-Glutamate	glu__L_c	protein	-0.10686
+Glycine	gly_c	protein	-0.17197
+L-Histidine	his__L_c	protein	-0.04036
+L-Isoleucine	ile__L_c	protein	-0.04825
+L-Leucine	leu__L_c	protein	-0.18671
+L-Lysine	lys__L_c	protein	-0.03490
+L-Methionine	met__L_c	protein	-0.02816
+L-Phenylalanine	phe__L_c	protein	-0.04578
+L-Proline	pro__L_c	protein	-0.11468
+L-Serine	ser__L_c	protein	-0.08286
+L-Threonine	thr__L_c	protein	-0.10783
+L-Tryptophan	trp__L_c	protein	-0.02604
+L-Tyrosine	tyr__L_c	protein	-0.03438
+L-Valine	val__L_c	protein	-0.14681
+H2O	h2o_c	protein	1.75870
+protein pseudometabolite	protein_c	protein	1

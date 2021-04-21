@@ -5,7 +5,7 @@
 
 % Script R6-B: Curation of KEGG Model reactions to add to draft of Salb-GEM
 
-% Updated 2019-10-21
+% Updated 2020-11-03
 % Cheewin Kittikunapong
 
 % KEGG IDs
@@ -129,6 +129,8 @@ ref.rxns        = loadedData{1};
 ref.rxnNames    = loadedData{2};
 ref.rxnEqns     = loadedData{3};
 
+ref.rxnAnno     = loadedData{5}; % use string 'http://identifiers.org/' to sort out desired fields
+
 ref.rxnMets     = regexprep(ref.rxnEqns, ' \+ ',';');
 ref.rxnMets     = regexprep(ref.rxnMets, ' <-> ',';');
 % remove coefficients?? how to use \n for this??
@@ -148,7 +150,7 @@ mets{check(1)} = 'glc__D';
 mets{check(2)} = 'Glc_aD';
 mets{check(3)} = '3hbcoa';
 mets{check(4)} = 'f6p_c';
-mets{check(5)} = '3hibutcoa';
+%mets{check(5)} = '3hibutcoa';
 
 % add compartment info back
 mets = strcat(mets, '_c');
@@ -209,12 +211,12 @@ end
 
 rxns{check(1)}		= 'SERD_L';     
 rxns{check(2)}		= 'BGLA';
-rxns{check(3)}		= 'GUACYC';
-rxns{check(4)}		= 'ALCD2x';
-rxns{check(5)}		= 'LEUTA';
-rxns{check(6)}		= 'GLYCL';
-rxns{check(7)}		= 'P5CRx';
-rxns{check(8)}		= 'P5CR';
+rxns{check(3)}		= 'ALCD2x';
+rxns{check(4)}		= 'LEUTA';
+rxns{check(5)}		= 'GLYCL';
+rxns{check(6)}		= 'P5CRx';
+rxns{check(7)}		= 'P5CR';
+rxns{check(8)}		= 'GUAD';
 rxns{check(9)}		= 'HACD1';
 rxns{check(10)}		= 'ECOAH1';
 rxns{check(11)}		= 'HPROa';
@@ -226,6 +228,9 @@ rxns{check(16)}		= 'HACD5';
 rxns{check(17)}		= 'HACD3';
 rxns{check(18)}		= 'HACD2';
 rxns{check(19)}		= 'TREH';
+rxns{check(20)}		= 'HKNDDH';
+rxns{check(21)}		= 'HKNTDH';
+
 
 %% Updating KEGG Model structure
 
@@ -259,8 +264,7 @@ model2.rxns = rxns;
 % species were erroneously assigned the met ID '2hmc_c'.
 
 % list of duplicate IDs
-dMets = {'udp_c' 'glu__L_c' 'ala__L_c' 'uacgam_c' 'sucr_c' '2hmc_c' ...
-    'uaGgla_c' 'uaaGgla_c' 'lcts_c'};
+dMets = {'glu__L_c' 'ala__L_c' 'sucr_c' '2hmc_c' 'lcts_c'};
 
 % We will 'merge' the rows of the S matrix for all the reactions that each
 % metabolite participates in. We will do this by summing the rows.
@@ -268,6 +272,7 @@ dMets = {'udp_c' 'glu__L_c' 'ala__L_c' 'uacgam_c' 'sucr_c' '2hmc_c' ...
 % all the reactions from the case of the previous two distinct metabolites.
 
 for i = 1:numel(dMets)
+    i
     metIdx = find(ismember(model2.mets, dMets{i}))
     model2.S(metIdx(1),:)
     model2.S(metIdx(end),:)
@@ -288,8 +293,7 @@ model2 = removeMets(model2, model2.mets(idx));
 % reactions differed by the met IDs they used: in one case using KEGG 'G'
 % metabolite IDs and another 'C' IDs.
 
-model2.rxns{148} = 'SAGH_glycan';
-model2.rxns{149} = 'UAGPT2_glycan';
+model2.rxns{154} = 'SAGH_glycan';
 
 % To avoid redundancy, we will remove rxns that already exist in the draft
 % model. We can check what differs between their occurrences in the draft
@@ -316,11 +320,187 @@ idx2 = getIndexes(modelSalb, mets, 'mets');
  
 model2.metNames(idx1) = modelSalb.metNames(idx2);
 
+
+% import reversibility information computed using eQuilibrator
+fid         = fopen(['../../ComplementaryData/curation/reversibility/Salb_eQuilibrator_rev_filtered.csv']);
+loadedData  = textscan(fid,'%s %s %f %f %f %f %f %f','delimiter','\t', 'HeaderLines',1); fclose(fid);
+rxns        = loadedData{1};
+dGm         = loadedData{5};
+dGmStd      = loadedData{6};
+
+% change bounds of any reactions that satisfy our threshold condition of
+% -30 kJ/mol, referencing Gibbs free energy in physiological conditions
+
+for i = 1:length(rxns)
+    idx = find(ismember(model2.rxns, rxns(i)));
+    if ~isempty(idx)
+        if dGm(i) - dGmStd(i) < -30
+            model2.lb(idx) = 0;
+            %disp('forward only');
+        elseif dGm(i) + dGmStd(i) > -30
+            model2.lb(idx) = -1000;
+            %disp('reversible');
+        end
+    end
+end
+
+% In addition to reversibility curation by eQuilibrator, some manual
+% curation had to be carried out accordingly to make sure phenomena make
+% sense (e.g. carbon fixation does not take place). Two particularly
+% important reactions to fix were P5CRx and HPROa to ensure reasonable
+% growth rate and coupled malonyl-CoA production.
+
+fid         = fopen(['../../ComplementaryData/curation/reversibility/manual_curation_KEGGrxns.csv']);
+loadedData  = textscan(fid,'%s %f','delimiter','\t', 'HeaderLines',1); fclose(fid);
+rxnsToCheck        = loadedData{1};
+reversibility      = loadedData{2};
+
+for i = 1:length(rxnsToCheck)
+    idx = find(ismember(model2.rxns, rxnsToCheck{i}));
+    if ~isempty(idx)
+        if reversibility(i) == 1
+            model2.lb(idx) = 0;
+            %disp('forward only');
+        elseif reversibility(i) == 0
+            model2.lb(idx) = -1000;
+            %disp('reversible');
+        elseif reversibility(i) == -1
+            model2.lb(idx) = 0;
+            %disp('reverse only - equation will be reversed');
+            constructEquations(model2,model2.rxns(idx))
+            model2.S(:,idx) = -1 .* model2.S(:,idx);
+            constructEquations(model2,model2.rxns(idx))
+        end
+    end
+end
+
+%% Supplementary script to highlight identification of crucial reactions to curate
+
+% combination matrix of 1 and 0 to remove KEGG rxns combinatorially
+% rxnsToCheck = {'ASPO2y', 'ASPO2', 'FADRx', 'GLYTA', 'AGTi', 'SPT_syn','SPTc', ...
+%     'GLYCLTDy', 'ASNN', 'GUAD', 'PGMT_B', 'P5CRx', 'HPROa'};% generate matrix
+% m = length(rxnsToCheck);
+% mat = logical(dec2bin(0:2^m-1,m)-'0'); % Thanks to Matt J: https://www.mathworks.com/matlabcentral/answers/114863-how-do-i-make-a-2-m-x-m-dimensional-matrix-containing-all-possible-combinations-of-1s-and-0s
+
+% mu = [];
+% q = [];
+% for i = 1:length(mat)
+%     model = removeReactions(modelSalb, rxnsToCheck(mat(i,:)));
+%     sol = solveLP(model);
+%     mu = [mu; -sol.f];
+%     model = addExchangeRxn(model, 'malcoa_c', 0, 1000);
+%     model = changeRxnBounds(model, 'BIOMASS_SALB', -sol.f * 0.99, 'l');
+%     model = changeObjective(model, model.rxns(end));
+%     sol = solveLP(model);
+%     q = [q; -sol.f];
+% end
+
+%% Add KEGG reactions to the original draft model
+
 modelSalb = addRxnsGenesMets(modelSalb, model2, model2.rxns, true, 'Additional reactions based on new genes from KEGG');
 
-% There is an increase in the objective function after addition of the
-% reactions from KEGG
-[solution, hsSolOut] = solveLP(modelSalb, 0); -1*solution.f
+% There is a slight increase in the objective function after addition of the
+% reactions from KEGG (was originally much more pronounced in a previous
+% version when P5CRx and HPROa were not curated for reversibility.
+% [solution, hsSolOut] = solveLP(modelSalb, 0); -1*solution.f
+
+%% Updated for v 1.0.1: GAM fitting 
+% With all reactions added, we will now proceed with GAM fitting.
+% With cultivation data, we can now estimate ATP turnover in S. albus;
+% however, we will not be able to determine the relative distribution
+% between the NGAM and GAM entirely.
+
+model = modelSalb;
+
+% set influx to 1
+model = changeRxnBounds(model, 'EX_glc__D_e', -1, 'l');
+
+% get NGAM index
+idx_NGAM = getIndexes(modelSalb, 'ATPM', 'rxns');
+% show NGAM value
+modelSalb.lb(idx_NGAM) 
+
+% indices of metabolites involved with GAM
+% reactants
+[idx,j] = find(model.S(:,1866)>1);
+% products
+[idx2,j] = find(model.S(:,1866)<-1);
+
+%% RUN FITTING (GAM and NGAM)
+% Because initially fitting GAM on the original NGAM value of 2.64 resulted
+% in a high value of >500 mmol gDW for GAM, different NGAM values are also
+% tested in combination to see possible values for which GAM is more
+% physiologically feasible. After this step, we decided to take the NGAM
+% value from iML1515, GEM for *Escherichia coli*.
+
+% init array to store output
+bins = 101;
+
+error = zeros(bins);
+x = zeros(1, bins);
+y = zeros(1, bins);
+
+
+% define range of values to scan ('x' is value added to original GAM)
+for i = 1:1:bins
+    x(i,j) = 2.64+(i-1)*0.2;
+    model.lb(idx_NGAM) = 2.64+(i-1)*0.2;
+    for j = 1:1:bins
+        y(i,j) = 75.79+(j-1);
+        model.S(idx,1866) = 75.79+(j-1);
+        model.S(idx2,1866) = -75.79-(j-1);
+        sol = solveLP(model);
+    % abs(sol.f) is used to prevent complication between RAVEN and COBRA
+    % output
+        if sol.stat == -1
+            error(i,j) = 100;
+        else
+            error(i,j) = (0.04-abs(sol.f))^2;
+            %error(i,j) = (0.04-abs(sol.f))/0.04;
+        end
+    end
+end
+
+% visualize
+surf(x,y,abs(error));
+%heatmap(x,y,error);
+
+%% RUN FITTING (GAM only)
+% This section is optional but was kept in order to show how GAM was
+% originally fitted to the cultivation data.
+% init array to store output
+% error = [];
+% x = [];
+
+% define range of values to scan ('x' is value added to original GAM)
+%for i = 0:1:500
+%    x = [x,i];
+%    model.S(idx,1866) = 75.79+i;
+%    model.S(idx2,1866) = -75.79-i;
+%    sol = solveLP(model);
+%    % abs(sol.f) is used to prevent complication between RAVEN and COBRA
+%    % output
+%    error = [error, (0.04-abs(sol.f))^2];
+%    %error = [error, (0.04-abs(sol.f))/0.04];
+%end
+
+% visualize
+%plot(x,error)
+%min(abs(error))
+%% Update model
+
+% original GAM plus [464] yields minimum error. A negative error in this 
+% case means predicted growth rate is higher than measured value.
+
+% new GAM = 173 mmol/gDW
+
+% change GAM value in final model and rename BIOMASS rxn with GAM value
+% printed
+ modelSalb.lb(idx_NGAM) = 6.86; % from iML1515
+ modelSalb.S(idx,1866) = 173;
+ modelSalb.S(idx2,1866) = -173;
+ modelSalb.rxnNames{1866} = 'S. albus biomass objective function - with 173 GAM estimate';
+
 
 %% save model to scrap folder
 

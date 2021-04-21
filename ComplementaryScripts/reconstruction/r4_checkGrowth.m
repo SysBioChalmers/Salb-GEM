@@ -36,6 +36,7 @@ modelSco = rmfield(modelSco, 'unconstrained');
 ex_rxns = getExchangeRxns(modelSco);
 modelSco = removeReactions(modelSco, 'ATPM');
 modelSco = removeReactions(modelSco, ex_rxns);
+modelSco = removeReactions(modelSco, 'BIOMASS_SCO');
 
 %% Change exchange reaction bounds
 
@@ -55,7 +56,7 @@ reset = modelSalb;
 
 %% Testing growth on fructose as sole carbon source
 
-modelSalb = setParam(modelSalb, 'lb', 'EX_fru_e', -0.8); 
+modelSalb = setParam(reset, 'lb', 'EX_fru_e', -0.8); 
 [solution, hsSolOut] = solveLP(modelSalb, 0); -1*solution.f
 
 % As shown, the model does not grow on fructose only
