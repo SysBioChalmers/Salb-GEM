@@ -28631,7 +28631,7 @@
       - h_c: 1
       - nad_c: -1
       - nadh_c: 1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0705 or XNR_4234 or XNR_4395 or XNR_5704"
     - subsystem: "Tyrosine metabolism"
@@ -29432,7 +29432,7 @@
       - h_c: 1
       - nad_c: -1
       - nadh_c: 1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0767"
     - subsystem: "Benzoate degradation"
@@ -29554,7 +29554,7 @@
       - h2o_c: -1
       - nh4_c: 1
       - o2_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_5488"
     - subsystem: "Tyrosine metabolism"
@@ -29981,7 +29981,7 @@
       - h_c: 1
       - nadp_c: -1
       - nadph_c: 1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0357 or XNR_0358 or XNR_0665 or XNR_0752 or XNR_0913 or XNR_3651 or XNR_4492 or XNR_4600 or XNR_5221 or XNR_5537 or XNR_5752 or XNR_5806 or XNR_5911"
     - subsystem: "Fatty acid biosynthesis"
@@ -31393,7 +31393,7 @@
       - nh4_c: 1
       - nrpphr_c: -1
       - o2_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_5488"
     - subsystem: "Tyrosine metabolism"
@@ -31410,7 +31410,7 @@
       - h2o_c: -1
       - nh4_c: 1
       - o2_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_5488"
     - subsystem:
@@ -31749,7 +31749,7 @@
       - nh4_c: 1
       - o2_c: -1
       - srtn_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_5488"
     - subsystem: "Tryptophan metabolism"
@@ -31916,7 +31916,7 @@
       - mthgxl_c: 1
       - nh4_c: 1
       - o2_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_5488"
     - subsystem: "Glycine, serine and threonine metabolism"
@@ -32313,7 +32313,7 @@
       - h_c: 1
       - nad_c: -1
       - nadh_c: 1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_3458"
     - subsystem:
@@ -32333,7 +32333,7 @@
       - 2ahethmpp_c: -1
       - 2obut_c: -1
       - thmpp_c: 1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0356"
     - annotation: !!omap
@@ -34820,7 +34820,7 @@
       - trdox_c: 1
       - trdrd_c: -1
       - tsul_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0869"
     - subsystem: "Cysteine and methionine metabolism"
@@ -36162,10 +36162,10 @@
     - id: "AOBUTDs"
     - name: ""
     - metabolites: !!omap
-      - 2aobut_c: 1
-      - aact_c: -1
-      - co2_c: -1
-    - lower_bound: -1000
+      - 2aobut_c: -1
+      - aact_c: 1
+      - co2_c: 1
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: ""
     - subsystem: "Glycine, serine and threonine metabolism"
@@ -36869,7 +36869,7 @@
       - n4abutn_c: 1
       - nh4_c: 1
       - o2_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_5488"
     - subsystem: "Arginine and proline metabolism"
@@ -37204,14 +37204,14 @@
     - id: "ASNTRAT"
     - name: "Asp-tRNA(Asn):L-glutamine amido-ligase (ADP-forming)"
     - metabolites: !!omap
-      - adp_c: -1
-      - asntrna_c: -1
-      - asptrna_asn_c: 1
-      - atp_c: 1
-      - gln__L_c: 1
-      - glu__L_c: -1
-      - h2o_c: 1
-      - pi_c: -1
+      - adp_c: 1
+      - asntrna_c: 1
+      - asptrna_asn_c: -1
+      - atp_c: -1
+      - gln__L_c: -1
+      - glu__L_c: 1
+      - h2o_c: -1
+      - pi_c: 1
     - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_1334 or XNR_1729"
@@ -37327,7 +37327,7 @@
       - ala__L_c: 1
       - asp__L_c: -1
       - co2_c: 1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_4167"
     - subsystem: "Alanine, aspartate and glutamate metabolism"
@@ -37432,7 +37432,7 @@
       - iasp_c: 1
       - nad_c: -1
       - nadh_c: 1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0361"
     - subsystem: "Nicotinate and nicotinamide metabolism"
@@ -37448,7 +37448,7 @@
       - iasp_c: 1
       - nadp_c: -1
       - nadph_c: 1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0361"
     - subsystem: "Nicotinate and nicotinamide metabolism"
@@ -37719,7 +37719,7 @@
       - h_c: 1
       - nadp_c: -1
       - nadph_c: 1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_3548"
     - subsystem: "Glycine, serine and threonine metabolism"
@@ -37758,7 +37758,7 @@
       - h2o_c: -1
       - h_c: 1
       - pi_c: 1
-    - lower_bound: 2.64
+    - lower_bound: 6.86
     - upper_bound: 1000
     - gene_reaction_rule: ""
     - annotation: !!omap
@@ -38088,48 +38088,25 @@
     - confidence_score: 1
   - !!omap
     - id: "BIOMASS_SALB"
-    - name: "S. coelicolor biomass objective function - with 75.79 GAM estimate"
+    - name: "S. albus biomass objective function - with 173 GAM estimate"
     - metabolites: !!omap
-      - adp_c: 75.79
-      - atp_c: -75.79
+      - adp_c: 173
+      - atp_c: -173
       - biomass_c: 1
       - carb_c: -1
       - cellwall_c: -1
       - dna_c: -1
-      - h2o_c: -75.79
-      - h_c: 75.79
+      - h2o_c: -173
+      - h_c: 173
       - lipid_c: -1
       - misc_c: -1
-      - pi_c: 75.79
+      - pi_c: 173
       - protein_c: -1
       - rna_c: -1
     - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: ""
     - confidence_score: 1
-  - !!omap
-    - id: "BIOMASS_SCO"
-    - name: "S. coelicolor biomass objective function - with 75.79 GAM estimate"
-    - metabolites: !!omap
-      - adp_c: 75.79
-      - atp_c: -75.79
-      - carb_c: -1
-      - cellwall_c: -1
-      - dna_c: -1
-      - h2o_c: -75.79
-      - h_c: 75.79
-      - lipid_c: -1
-      - misc_c: -1
-      - pi_c: 75.79
-      - protein_c: -1
-      - rna_c: -1
-    - lower_bound: 0
-    - upper_bound: 1000
-    - gene_reaction_rule: ""
-    - annotation: !!omap
-      - sbo: "SBO:0000629"
-      - subsystem: "Biomass and maintenance functions"
-    - confidence_score: 0
   - !!omap
     - id: "BLACT"
     - name: "Penicillin hydrolase"
@@ -38280,7 +38257,7 @@
       - h_c: 1
       - nad_c: -1
       - nadh_c: 1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_3458"
     - subsystem: "Butanoate metabolism"
@@ -38867,7 +38844,7 @@
       - cbm_c: -1
       - co2_c: 1
       - nh4_c: 1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: ""
     - subsystem: "Nitrogen metabolism"
@@ -42921,7 +42898,7 @@
       - h_c: 1
       - nad_c: -1
       - nadh_c: 1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0596"
     - subsystem: "Biosynthesis of siderophore group nonribosomal peptides"
@@ -43812,13 +43789,13 @@
     - id: "DNA_PSEUDO"
     - name: "DNA pseudoreaction"
     - metabolites: !!omap
-      - datp_c: -0.03239
-      - dctp_c: -0.0221
-      - dgtp_c: -0.0221
+      - datp_c: -0.0214
+      - dctp_c: -0.0146
+      - dgtp_c: -0.0146
       - dna_c: 1
-      - dttp_c: -0.03239
-      - h_c: 0.10898
-      - ppi_c: 0.10898
+      - dttp_c: -0.0214
+      - h_c: 0.07201
+      - ppi_c: 0.07201
     - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: ""
@@ -50120,7 +50097,7 @@
       - h_c: 1
       - nad_c: -1
       - nadh_c: 1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0088"
     - subsystem: "Riboflavin metabolism"
@@ -50671,7 +50648,7 @@
       - g6p_c: 1
       - h2o_c: -1
       - suc6p_c: -1
-    - lower_bound: 0
+    - lower_bound: -1000
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0623"
     - subsystem: "Starch and sucrose metabolism"
@@ -51465,7 +51442,7 @@
       - glyc_c: 1
       - h2o_c: -1
       - pi_c: 1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_5036"
     - subsystem: "Glycerolipid metabolism"
@@ -51787,7 +51764,7 @@
       - h2o2_c: 1
       - h2o_c: -1
       - o2_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_1421 or XNR_1745"
     - subsystem: "Galactose metabolism"
@@ -53397,7 +53374,7 @@
       - h_c: 1
       - nadp_c: -1
       - nadph_c: 1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_3914"
     - subsystem: "Glyoxylate and dicarboxylate metabolism"
@@ -53805,7 +53782,7 @@
       - atp_c: -1
       - gmhep1p_c: -1
       - ppi_c: 1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_5587"
     - subsystem: "Lipopolysaccharide biosynthesis"
@@ -55186,7 +55163,7 @@
       - atp_c: -1
       - gam6p_c: 1
       - gam_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0113"
     - subsystem: "Amino sugar and nucleotide sugar metabolism"
@@ -55292,7 +55269,7 @@
       - 3hibutcoa_c: -1
       - coa_c: 1
       - h2o_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0152 or XNR_0335"
     - subsystem: "Valine, leucine and isoleucine degradation"
@@ -55517,7 +55494,7 @@
       - h2o_c: -1
       - hkntd_c: -1
       - op4en_c: 1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_1631"
     - subsystem: "Phenylalanine metabolism"
@@ -55603,7 +55580,7 @@
       - mmtsa_c: 1
       - nad_c: -1
       - nadh_c: 1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0151 or XNR_0767"
     - subsystem: "Valine, leucine and isoleucine degradation"
@@ -55837,12 +55814,12 @@
     - id: "HPROa"
     - name: "trans-4-Hydroxy-L-proline:NAD+ 5-oxidoreductase"
     - metabolites: !!omap
-      - 1p3h5c_c: 1
-      - 4hpro_LT_c: -1
-      - h_c: 1
-      - nad_c: -1
-      - nadh_c: 1
-    - lower_bound: -1000
+      - 1p3h5c_c: -1
+      - 4hpro_LT_c: 1
+      - h_c: -1
+      - nad_c: 1
+      - nadh_c: -1
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_1867"
     - subsystem: "Arginine and proline metabolism"
@@ -56001,7 +55978,7 @@
       - achms_c: 1
       - coa_c: 1
       - hom__L_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0868"
     - subsystem: "Cysteine and methionine metabolism"
@@ -56306,7 +56283,7 @@
       - h2o_c: -1
       - ichor_c: -1
       - pyr_c: 1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0597"
     - subsystem: "Biosynthesis of siderophore group nonribosomal peptides"
@@ -57221,7 +57198,7 @@
       - co2_c: 1
       - coa_c: 1
       - malACP_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0588"
     - subsystem: "Fatty acid biosynthesis"
@@ -57347,7 +57324,7 @@
       - glc__D_c: 1
       - h2o_c: -1
       - lcts_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0517 or XNR_1682"
     - annotation: !!omap
@@ -57405,7 +57382,7 @@
       - mthgxl_c: 1
       - nad_c: -1
       - nadh_c: 1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_3914"
     - subsystem: "Pyruvate metabolism"
@@ -57446,7 +57423,7 @@
       - gal_c: 1
       - h2o_c: -1
       - lcts_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0517 or XNR_1682"
     - subsystem: "Galactose metabolism"
@@ -60614,7 +60591,7 @@
       - msa_c: 1
       - nadp_c: -1
       - nadph_c: 1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_3548 or XNR_4141"
     - subsystem:
@@ -61681,7 +61658,7 @@
       - for_c: 1
       - glu__L_c: 1
       - h2o_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0369"
     - subsystem:
@@ -63673,12 +63650,12 @@
     - id: "P5CRx"
     - name: "L-Proline:NAD+ 5-oxidoreductase"
     - metabolites: !!omap
-      - 1pyr5c_c: 1
-      - h_c: 1
-      - nad_c: -1
-      - nadh_c: 1
-      - pro__L_c: -1
-    - lower_bound: -1000
+      - 1pyr5c_c: -1
+      - h_c: -1
+      - nad_c: 1
+      - nadh_c: -1
+      - pro__L_c: 1
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_1867"
     - subsystem: "Arginine and proline metabolism"
@@ -64397,7 +64374,7 @@
       - amp_c: 1
       - camp_c: -1
       - h2o_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0041"
     - subsystem: "Purine metabolism"
@@ -64417,7 +64394,7 @@
       - nad_c: -1
       - nadh_c: 1
       - pyr_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0604 or XNR_0605 or XNR_0839"
     - annotation: !!omap
@@ -64526,7 +64503,7 @@
       - o2_c: -1
       - pacald_c: 1
       - peamn_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_5488"
     - subsystem: "Phenylalanine metabolism"
@@ -66861,28 +66838,28 @@
     - id: "PROTEIN_PSEUDO"
     - name: "Protein pseudoreaction"
     - metabolites: !!omap
-      - ala__L_c: -0.55133
-      - arg__L_c: -0.31652
-      - asn__L_c: -0.05936
-      - asp__L_c: -0.22446
-      - cys__L_c: -0.02859
-      - gln__L_c: -0.10212
-      - glu__L_c: -0.235
-      - gly_c: -0.37818
-      - h2o_c: 3.8676
-      - his__L_c: -0.08875
-      - ile__L_c: -0.10611
-      - leu__L_c: -0.41061
-      - lys__L_c: -0.07674
-      - met__L_c: -0.06192
-      - phe__L_c: -0.10067
-      - pro__L_c: -0.25219
+      - ala__L_c: -0.2507
+      - arg__L_c: -0.14393
+      - asn__L_c: -0.02699
+      - asp__L_c: -0.10207
+      - cys__L_c: -0.013
+      - gln__L_c: -0.04644
+      - glu__L_c: -0.10686
+      - gly_c: -0.17197
+      - h2o_c: 1.7587
+      - his__L_c: -0.04036
+      - ile__L_c: -0.04825
+      - leu__L_c: -0.18671
+      - lys__L_c: -0.0349
+      - met__L_c: -0.02816
+      - phe__L_c: -0.04578
+      - pro__L_c: -0.11468
       - protein_c: 1
-      - ser__L_c: -0.18223
-      - thr__L_c: -0.23713
-      - trp__L_c: -0.05726
-      - tyr__L_c: -0.07561
-      - val__L_c: -0.32285
+      - ser__L_c: -0.08286
+      - thr__L_c: -0.10783
+      - trp__L_c: -0.02604
+      - tyr__L_c: -0.03438
+      - val__L_c: -0.14681
     - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: ""
@@ -68666,7 +68643,7 @@
       - nadh_c: 1
       - rbl__D_c: 1
       - rbt_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_3950"
     - subsystem: "Pentose and glucuronate interconversions"
@@ -68682,7 +68659,7 @@
       - nadh_c: 1
       - retinal_c: 1
       - retinol_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0705 or XNR_4234 or XNR_4395 or XNR_5704"
     - subsystem: "Retinol metabolism"
@@ -68698,7 +68675,7 @@
       - 4abutn_c: -1
       - CE1944_c: 1
       - h2o_c: 1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: ""
     - annotation: !!omap
@@ -69865,7 +69842,7 @@
       - fru_B_c: 1
       - h2o_c: -1
       - sucr_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0623"
     - annotation: !!omap
@@ -69882,7 +69859,7 @@
       - fru_B_c: 1
       - h2o_c: -1
       - sucr_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0623"
     - annotation: !!omap
@@ -70132,7 +70109,7 @@
       - h2o_c: 3
       - h_c: -2
       - slnt_c: -1
-    - lower_bound: 0
+    - lower_bound: -1000
     - upper_bound: 1000
     - gene_reaction_rule: ""
     - subsystem: "Selenocompound metabolism"
@@ -70209,7 +70186,7 @@
       - nh4_c: 1
       - pyr_c: 1
       - ser__D_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_4069"
     - subsystem: "Glycine, serine and threonine metabolism"
@@ -71670,7 +71647,7 @@
       - udp_c: 1
     - lower_bound: 0
     - upper_bound: 1000
-    - gene_reaction_rule: ""
+    - gene_reaction_rule: "XNR_1871 and XNR_1873 and XNR_1874"
     - annotation: !!omap
       - bigg.reaction: "TECA1S"
       - metanetx.reaction: "MNXR104767"
@@ -71695,7 +71672,7 @@
       - udp_c: 1
     - lower_bound: 0
     - upper_bound: 1000
-    - gene_reaction_rule: ""
+    - gene_reaction_rule: "XNR_1871 and XNR_1873 and XNR_1874"
     - annotation: !!omap
       - bigg.reaction: "TECA2S"
       - metanetx.reaction: "MNXR104769"
@@ -71717,7 +71694,7 @@
       - udpg_c: -25
     - lower_bound: 0
     - upper_bound: 1000
-    - gene_reaction_rule: ""
+    - gene_reaction_rule: "XNR_1871 and XNR_1873 and XNR_1874"
     - annotation: !!omap
       - bigg.reaction: "TECA3S"
       - metanetx.reaction: "MNXR104771"
@@ -71917,7 +71894,7 @@
       - pi_c: 1
       - thm_c: 1
       - thmmp_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_1589"
     - subsystem: "Thiamine metabolism"
@@ -72585,7 +72562,7 @@
       - glc__D_c: 2
       - h2o_c: -1
       - tre_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0954 or XNR_5047"
     - subsystem: "Starch and sucrose metabolism"
@@ -72835,7 +72812,7 @@
       - nh4_c: 1
       - o2_c: -1
       - trypta_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_5488"
     - subsystem: "Tryptophan metabolism"
@@ -72921,7 +72898,7 @@
       - nh4_c: 1
       - o2_c: -1
       - tym_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_5488"
     - subsystem: "Tyrosine metabolism"
@@ -74165,7 +74142,7 @@
       - nadh_c: -1
       - o2_c: -1
       - vanlt_c: -1
-    - lower_bound: -1000
+    - lower_bound: 0
     - upper_bound: 1000
     - gene_reaction_rule: "XNR_0353"
     - subsystem: "Aminobenzoate degradation"
@@ -74522,7 +74499,7 @@
       - xyl__D_e: -1
     - lower_bound: 0
     - upper_bound: 1000
-    - gene_reaction_rule: ""
+    - gene_reaction_rule: "XNR_0773 and XNR_0774 and XNR_0775 and XNR_3315"
     - annotation: !!omap
       - bigg.reaction: "XYLabc"
       - metanetx.reaction: "MNXR115654"
@@ -75670,7 +75647,13 @@
     - id: "XNR_0772"
     - name: ""
   - !!omap
+    - id: "XNR_0773"
+    - name: ""
+  - !!omap
     - id: "XNR_0774"
+    - name: ""
+  - !!omap
+    - id: "XNR_0775"
     - name: ""
   - !!omap
     - id: "XNR_0776"
@@ -76486,6 +76469,15 @@
     - id: "XNR_1867"
     - name: ""
   - !!omap
+    - id: "XNR_1871"
+    - name: ""
+  - !!omap
+    - id: "XNR_1873"
+    - name: ""
+  - !!omap
+    - id: "XNR_1874"
+    - name: ""
+  - !!omap
     - id: "XNR_1878"
     - name: ""
   - !!omap
@@ -77195,6 +77187,9 @@
     - name: ""
   - !!omap
     - id: "XNR_3313"
+    - name: ""
+  - !!omap
+    - id: "XNR_3315"
     - name: ""
   - !!omap
     - id: "XNR_3316"
