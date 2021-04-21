@@ -70,8 +70,11 @@ modelSalb.rxns{end} = 'growth'; modelSalb.rxnNames{end} = 'biomass equation';
 % acids with available information using the S. albus genome
 
 % Load biomass information
-fid             = fopen([ '../../ComplementaryData/biomass/biomassCuration.csv']);
-loadedData      = textscan(fid, '%q %q %q %f','delimiter', ',', 'HeaderLines', 1);
+% In a recent update with more available measured data for protein and DNA
+% content, we will use an updated file to set the stoichiometries in the
+% associated pseudoreactions.
+fid             = fopen([ '../../ComplementaryData/biomass/biomassCuration_measured.csv']);
+loadedData      = textscan(fid, '%q %q %q %f','delimiter', '\t', 'HeaderLines', 1);
 fclose(fid);
 
 biomass.name         = loadedData{1};    
