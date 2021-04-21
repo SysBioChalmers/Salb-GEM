@@ -150,7 +150,7 @@ mets{check(1)} = 'glc__D';
 mets{check(2)} = 'Glc_aD';
 mets{check(3)} = '3hbcoa';
 mets{check(4)} = 'f6p_c';
-mets{check(5)} = '3hibutcoa';
+%mets{check(5)} = '3hibutcoa';
 
 % add compartment info back
 mets = strcat(mets, '_c');
@@ -403,6 +403,104 @@ modelSalb = addRxnsGenesMets(modelSalb, model2, model2.rxns, true, 'Additional r
 % reactions from KEGG (was originally much more pronounced in a previous
 % version when P5CRx and HPROa were not curated for reversibility.
 % [solution, hsSolOut] = solveLP(modelSalb, 0); -1*solution.f
+
+%% Updated for v 1.0.1: GAM fitting 
+% With all reactions added, we will now proceed with GAM fitting.
+% With cultivation data, we can now estimate ATP turnover in S. albus;
+% however, we will not be able to determine the relative distribution
+% between the NGAM and GAM entirely.
+
+model = modelSalb;
+
+% set influx to 1
+model = changeRxnBounds(model, 'EX_glc__D_e', -1, 'l');
+
+% get NGAM index
+idx_NGAM = getIndexes(modelSalb, 'ATPM', 'rxns');
+% show NGAM value
+modelSalb.lb(idx_NGAM) 
+
+% indices of metabolites involved with GAM
+% reactants
+[idx,j] = find(model.S(:,1866)>1);
+% products
+[idx2,j] = find(model.S(:,1866)<-1);
+
+%% RUN FITTING (GAM and NGAM)
+% Because initially fitting GAM on the original NGAM value of 2.64 resulted
+% in a high value of >500 mmol gDW for GAM, different NGAM values are also
+% tested in combination to see possible values for which GAM is more
+% physiologically feasible. After this step, we decided to take the NGAM
+% value from iML1515, GEM for *Escherichia coli*.
+
+% init array to store output
+bins = 101;
+
+error = zeros(bins);
+x = zeros(1, bins);
+y = zeros(1, bins);
+
+
+% define range of values to scan ('x' is value added to original GAM)
+for i = 1:1:bins
+    x(i,j) = 2.64+(i-1)*0.2;
+    model.lb(idx_NGAM) = 2.64+(i-1)*0.2;
+    for j = 1:1:bins
+        y(i,j) = 75.79+(j-1);
+        model.S(idx,1866) = 75.79+(j-1);
+        model.S(idx2,1866) = -75.79-(j-1);
+        sol = solveLP(model);
+    % abs(sol.f) is used to prevent complication between RAVEN and COBRA
+    % output
+        if sol.stat == -1
+            error(i,j) = 100;
+        else
+            error(i,j) = (0.04-abs(sol.f))^2;
+            %error(i,j) = (0.04-abs(sol.f))/0.04;
+        end
+    end
+end
+
+% visualize
+surf(x,y,abs(error));
+%heatmap(x,y,error);
+
+%% RUN FITTING (GAM only)
+% This section is optional but was kept in order to show how GAM was
+% originally fitted to the cultivation data.
+% init array to store output
+% error = [];
+% x = [];
+
+% define range of values to scan ('x' is value added to original GAM)
+%for i = 0:1:500
+%    x = [x,i];
+%    model.S(idx,1866) = 75.79+i;
+%    model.S(idx2,1866) = -75.79-i;
+%    sol = solveLP(model);
+%    % abs(sol.f) is used to prevent complication between RAVEN and COBRA
+%    % output
+%    error = [error, (0.04-abs(sol.f))^2];
+%    %error = [error, (0.04-abs(sol.f))/0.04];
+%end
+
+% visualize
+%plot(x,error)
+%min(abs(error))
+%% Update model
+
+% original GAM plus [464] yields minimum error. A negative error in this 
+% case means predicted growth rate is higher than measured value.
+
+% new GAM = 173 mmol/gDW
+
+% change GAM value in final model and rename BIOMASS rxn with GAM value
+% printed
+ modelSalb.lb(idx_NGAM) = 6.86; % from iML1515
+ modelSalb.S(idx,1866) = 173;
+ modelSalb.S(idx2,1866) = -173;
+ modelSalb.rxnNames{1866} = 'S. albus biomass objective function - with 173 GAM estimate';
+
 
 %% save model to scrap folder
 
