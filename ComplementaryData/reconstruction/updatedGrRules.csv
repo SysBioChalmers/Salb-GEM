@@ -47,3 +47,5 @@ SERAT	Serine O-acetyltransferase			no grRule	r4_checkGrowth
 VOR1b	3-methyl-2-oxobutanoate dehydrogenase (lipoamide)			no grRule	r4_checkGrowth
 VOR2b	3-methyl-2-oxobutanoate dehydrogenase (lipoamide)			no grRule	r4_checkGrowth
 VOR3b	3-methyl-2-oxobutanoate dehydrogenase (lipoamide)			no grRule	r4_checkGrowth
+2-Oxogluterate dehydrogenase (NADP via ferredoxin)	(SCO4594 and SCO4595 and SCO0681) or (SCO6269 and SCO6270 and SCO0681)	(XNR_3672 and XNR_3673 and XNR_2490) or (XNR_3672 and XNR_3673 and XNR_2490)	r4_checkGrowth
+D-mannitol transport via PEP:PTS	SCO0434 and SCO1390 and SCO2906 and SCO2907 and SCO3196	XNR_1781 and XNR_5451 and XNR_0028	r4_checkGrowth
