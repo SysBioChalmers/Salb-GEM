@@ -14,7 +14,7 @@ This repository entails the genome-scale metabolic model (GEM) SalbGEM for *Stre
 
 |Taxonomy | Template Model | Reactions | Metabolites| Genes |
 |:-------:|:--------------:|:---------:|:----------:|:-----:|
-|_Streptomyces albus J1074_|[Sco-GEM](https://github.com/SysBioChalmers/Sco-GEM)|2264|1911|1365|
+|_Streptomyces albus J1074_|[Sco-GEM](https://github.com/SysBioChalmers/Sco-GEM)|2231|1872|1381|
 
 This repository is administered by Cheewin Kittikunapong, Division of Systems and Synthetic Biology, Department of Biology and Biological Engineering, Chalmers University of Technology.
 
